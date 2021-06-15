@@ -23,7 +23,6 @@ class User extends Authenticatable
         'doc_type', 
         'doc_number',
         'email',
-        'email_verified_at' ,
         'password',
         'status'
     ];

@@ -16,9 +16,10 @@ class CreateRolesTable extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name', '7');                  // admin interno externo
-            $table->string('status', '11');               // admin interno externo
+            $table->string('status', '11');
             $table->timestamps();
         });
+
     }
 
     /**
