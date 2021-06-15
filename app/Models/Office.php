@@ -19,8 +19,8 @@ class Office extends Model
         return $this->hasMany(Suboffice::class);
     }
 
-    public function employee()
+    public function employees()
     {
-        return $this->HasOne(Employee::class);
+        return $this->hasMany(Employee::class);
     }
 }

@@ -25,16 +25,14 @@ class Expedient extends Model
     {
         return $this->belongsTo(User::class);
     }
-
     
-    public function notification(){ 
+    public function notifications(){ 
         return $this->hasMany(Notification::class);
     }
 
-    public function derivation(){ 
+    public function derivations(){ 
         return $this->hasMany(Derivation::class);
     }
-
     
     public function archivation(){ 
         return $this->hasOne(Archivation::class);

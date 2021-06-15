@@ -19,5 +19,10 @@ class Archivation extends Model
     {
         return $this->belongsTo(Expedient::class);
     }
+ 
+    public function user()
+    {
+        return $this->belongsTo(Expedient::class);
+    }
     
 }

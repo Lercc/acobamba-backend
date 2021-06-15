@@ -47,7 +47,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-        //  TABLA  USER-ROL
+    //  TABLA  USER-ROL
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -63,20 +63,19 @@ class User extends Authenticatable
         return $this->HasOne(Employee::class);
     }
 
-    public function expedient(){
+    public function expedients(){
         return $this->hasMany(Expedient::class);
     }
 
-    public function notification(){ 
+    public function notifications(){ 
         return $this->hasMany(Notification::class);
     }
 
-    public function derivation(){ 
+    public function derivations(){ 
         return $this->hasMany(Derivation::class);
     }
-
-
-
-
-
+ 
+    public function archivations(){ 
+        return $this->hasMany(Archivation::class);
+    }
 }

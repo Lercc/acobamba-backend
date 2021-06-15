@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('office_id')->unsigned()->nullable();
             $table->bigInteger('suboffice_id')->unsigned()->nullable();
-            $table->string('employee_type', '10');                          // gerente subgerente trabajador
+            $table->string('employee_type', '10');                          // gerente subgerente trabajador secretaria
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users');
