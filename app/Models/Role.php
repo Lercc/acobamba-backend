@@ -9,9 +9,12 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'status',
+    ];
 
-
-
+    //  TABLA  USER-ROL
     public function users()
     {
         return $this->hasMany(User::class);

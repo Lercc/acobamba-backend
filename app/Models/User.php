@@ -17,9 +17,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'role_id',
         'name',
+        'last_name', 
+        'doc_type', 
+        'doc_number',
         'email',
+        'email_verified_at' ,
         'password',
+        'status'
     ];
 
     /**
@@ -41,8 +47,36 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+        //  TABLA  USER-ROL
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function processor()
+    {
+        return $this->HasOne(Processor::class);
+    }
+
+    public function employee()
+    {
+        return $this->HasOne(Employee::class);
+    }
+
+    public function expedient(){
+        return $this->hasMany(Expedient::class);
+    }
+
+    public function notification(){ 
+        return $this->hasMany(Notification::class);
+    }
+
+    public function derivation(){ 
+        return $this->hasMany(Derivation::class);
+    }
+
+
+
+
+
 }
