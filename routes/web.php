@@ -2,19 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\User\UserRoleController;
+use App\Http\Controllers\Role\RoleController;
+use App\Http\Controllers\Role\RoleUserController;
 
 // Route::get('/', function () {
 //     return view('');
 // });
-Route::get('/user/{id}',[UserController::class, 'show']);
+// Route::get('/user/{user}',[UserController::class, 'show']);
+
+/**
+ *  Roles
+ */
+Route::apiResource('roles', RoleController::class);
+Route::apiResource('roles.users', RoleUserController::class)->only('index');
+
+/**
+ *  User
+ */
+Route::apiResource('users', UserController::class);
+Route::apiResource('users.roles', UserRoleController::class)->only('index');
+
+
+
+// Nested Resource
+// http://example.com/articles/1/author"
+// Route::resource('articles.author', [ArticlesAuthorController::class])->only('index', 'show')
