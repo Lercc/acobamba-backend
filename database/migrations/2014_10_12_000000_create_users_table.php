@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('doc_type', 11);                         // DNI - EXTRANJERIA
             $table->string('doc_number', 11)->unique();             // 8 11
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('status', 11);     
             $table->rememberToken();
