@@ -25,6 +25,11 @@ class CreateEmployeesTable extends Migration
             $table->foreign('office_id')->references('id')->on('offices');
             $table->foreign('suboffice_id')->references('id')->on('suboffices');
         });
+
+        DB::table('employees')->insert(array('id'=>'1', 'user_id'=>'2','office_id'=>'3', 'employee_type'=>'gerente'));
+        DB::table('employees')->insert(array('id'=>'2', 'user_id'=>'3','office_id'=>'3', 'employee_type'=>'secretaria'));
+        DB::table('employees')->insert(array('id'=>'3', 'user_id'=>'4','suboffice_id'=>'1', 'employee_type'=>'subgerente'));
+        DB::table('employees')->insert(array('id'=>'4', 'user_id'=>'5','suboffice_id'=>'1', 'employee_type'=>'trabajador'));
     }
 
     /**

@@ -62,9 +62,9 @@ class User extends Authenticatable
         return $this->hasMany(Expedient::class);
     }
 
-    public function notifications(){ 
-        return $this->hasMany(Notification::class);
-    }
+    // public function notifications(){ 
+    //     return $this->hasMany(Notification::class);
+    // }
 
     public function derivations(){ 
         return $this->hasMany(Derivation::class);

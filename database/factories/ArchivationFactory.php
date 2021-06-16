@@ -22,11 +22,10 @@ class ArchivationFactory extends Factory
     public function definition()
     {
         return [
-            'expedient_id'   => rand(1,40),
-            'user_id'        => rand(1,50),
+            'expedient_id'   => rand(1,60),
+            'user_id'        => rand(2,4),
             'observations'    => $this->faker->text($maxNbChars = 200) ,
             'status'         => 'archivado'
-
         ];
     }
 }

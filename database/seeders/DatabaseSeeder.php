@@ -27,13 +27,12 @@ class DatabaseSeeder extends Seeder
         //     RoleSeeder::class,
         // ]);
 
-        User::factory(90)->create();
-        Processor::factory(60)->create();
-        Employee::factory(60)->create();
+        // User::factory(90)->create();
+        // Processor::factory(60)->create();
+        // Employee::factory(60)->create();
         Expedient::factory(60)->create();
-        Derivation::factory(60)->create();
-        Archivation::factory(40)->create();
-        Notification::factory(40)->create();
-
+        Derivation::factory(30)->create();
+        Archivation::factory(15)->create();
+        Notification::factory(30)->create();
     }
 }

@@ -20,6 +20,9 @@ class CreateProcessorsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
         });
+        
+        DB::table('processors')->insert(array('id'=>'1', 'user_id'=>'6'));
+        DB::table('processors')->insert(array('id'=>'2', 'user_id'=>'7'));
     }
 
     /**

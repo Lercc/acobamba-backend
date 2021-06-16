@@ -22,12 +22,10 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
-         
-            'user_id'        => rand(1,50),
-            'office_id'        => rand(1,18),
-            'suboffice_id'        => rand(1,11),
-            'employee_type'  => $this->faker->randomElement(['gerente','subgerente','trabajador','secretaria']),
-           
+            // 'user_id'        => rand(1,50),
+            // 'office_id'        => rand(1,18),
+            // 'suboffice_id'        => rand(1,11),
+            // 'employee_type'  => $this->faker->randomElement(['gerente','subgerente','trabajador','secretaria']),
         ];
     }
 }

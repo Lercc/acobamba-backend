@@ -32,9 +32,9 @@ class Employee extends Model
         return $this->belongsTo(Suboffice::class);
     }
 
-    public function notifications(){ 
-        return $this->hasMany(Notification::class);
-    }
+    // public function notifications(){ 
+    //     return $this->hasMany(Notification::class);
+    // }
 
     public function derivations(){ 
         return $this->hasMany(Derivation::class);

@@ -22,7 +22,7 @@ class ProcessorFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=> rand(1,90),
+            // 'user_id'=> rand(1,90)
         ];
     }
 }
