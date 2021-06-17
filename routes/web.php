@@ -19,9 +19,14 @@ use App\Http\Controllers\Employee\EmployeeUserController;
 use App\Http\Controllers\Employee\EmployeeOfficeController;
 use App\Http\Controllers\Employee\EmployeeSubofficeController;
 
-
 use App\Http\Controllers\Processor\ProcessorController;
 use App\Http\Controllers\Processor\ProcessorUserController;
+
+use App\Http\Controllers\Derivation\DerivationController;
+use App\Http\Controllers\Derivation\DerivationExpedientController;
+use App\Http\Controllers\Derivation\DerivationUserController;
+use App\Http\Controllers\Derivation\DerivationEmployeeController;
+
 
 // Route::get('/', function () {
 //     return view('');
@@ -57,6 +62,29 @@ Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->
 /* Processor */
 Route::apiResource('processors', ProcessorController::class);
 Route::apiResource('processors.users', ProcessorUserController::class)->only('index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Derivation */
+Route::apiResource('derivations', DerivationController::class);         
+Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');                           // OK
+Route::apiResource('derivations.users', DerivationUserController::class)->only('index');           // OK
+Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');
+
+
+
+
 
 // Nested Resource
 // http://example.com/articles/1/author"
