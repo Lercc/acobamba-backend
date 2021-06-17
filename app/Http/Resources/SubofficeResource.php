@@ -39,8 +39,6 @@ class SubofficeResource extends JsonResource
             'links' => [
                 'self' => route('suboffices.show', $this->id)
             ]
-
-
         ];
     }
 }

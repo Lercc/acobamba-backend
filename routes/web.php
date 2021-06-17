@@ -37,11 +37,9 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index');
 Route::apiResource('users', UserController::class);
 Route::apiResource('users.roles', UserRoleController::class)->only('index');
 
-
 /* Office */
 Route::apiResource('offices', OfficeController::class);
 Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');
-
 
 /* SubOffices */
 Route::apiResource('suboffices', SubofficeController::class);
@@ -50,8 +48,8 @@ Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only
 /* Employee */
 Route::apiResource('employees', EmployeeController::class);
 Route::apiResource('employees.users', EmployeeUserController::class)->only('index');
-Route::apiResource('employees.users', EmployeeOfficeController::class)->only('index');
-Route::apiResource('employees.users', EmployeeSubofficeController::class)->only('index');
+Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');
+Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');
 
 
 // Nested Resource
