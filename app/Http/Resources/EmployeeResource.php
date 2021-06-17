@@ -19,14 +19,17 @@ class EmployeeResource extends JsonResource
         'type'   => 'employee',
         'id'     => (string) $this->id,
         'attributes' => [
-            'id'               => $this->id,
-            'user_id'          => $this->user_id,
-            'user_name'        => $this->user->name,
-            'office_id'        => $this->office_id,
-            'office_name'      => $this->office->name,
-            'suboffice_id'     => $this->suboffice_id,
-            'suboffice_name'   => $this->suboffice->name,
-            'employee_type'    => $this->employee_type,
+            'id'                    => $this->id,
+            'user_id'               => $this->user_id,
+            'user_name'             => $this->user->name,
+            'user_lastname'         => $this->user->last_name,
+            'office_id'             => $this->office_id ? $this->office_id : null,
+            'office_name'           => $this->office_id ? $this->office->name : null,
+            'suboffice_id'          => $this->suboffice_id ? $this->suboffice_id : null,
+            'suboffice_name'        => $this->suboffice_id ? $this->suboffice->name : null,
+            'office_id_suboffice'   => $this->suboffice_id ? $this->suboffice->office->id : null,
+            'office_name_suboffice' => $this->suboffice_id ? $this->suboffice->office->name : null,
+            'employee_type'         => $this->employee_type,
         ],
         'relationships' => [
             'user' => [
@@ -40,20 +43,20 @@ class EmployeeResource extends JsonResource
             ],
             'office' => [
                 'links' => [
-                   'related' => route('employees.offices.index', $this->id)
+                   'related' => $this->office_id ? route('employees.offices.index', $this->id) : null
                 ],
                 'data'    => [
                     'type'  => 'office',
-                    'id'    => (string) $this->office_id,
+                    'id'    => $this->office_id ? (string) $this->office_id : null
                 ]
             ],
             'suboffices' => [
                 'links' => [
-                   'related' => route('employees.suboffices.index', $this->id)
+                   'related' => $this->suboffice_id ? route('employees.suboffices.index', $this->id) : null
                 ],
                 'data'    => [
                     'type'  => 'suboffice',
-                    'id'    => (string) $this->suboffice_id,
+                    'id'    => $this->suboffice_id ? (string) $this->suboffice_id : null
                 ]
             ],
         ],

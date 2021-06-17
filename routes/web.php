@@ -34,20 +34,20 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index');
 /**
  *  User
  */
-Route::apiResource('users', UserController::class);
-Route::apiResource('users.roles', UserRoleController::class)->only('index');
+Route::apiResource('users', UserController::class);                                            // OK
+Route::apiResource('users.roles', UserRoleController::class)->only('index');                   // OK
 
 /* Office */
-Route::apiResource('offices', OfficeController::class);
-Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');
+Route::apiResource('offices', OfficeController::class);                                        // OK
+Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');     // OK
 
 /* SubOffices */
-Route::apiResource('suboffices', SubofficeController::class);
-Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index');
+Route::apiResource('suboffices', SubofficeController::class);                                  // OK
+Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index');     // OK
 
 /* Employee */
-Route::apiResource('employees', EmployeeController::class);
-Route::apiResource('employees.users', EmployeeUserController::class)->only('index');
+Route::apiResource('employees', EmployeeController::class);                                    // OK
+Route::apiResource('employees.users', EmployeeUserController::class)->only('index');           // OK
 Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');
 Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');
 
