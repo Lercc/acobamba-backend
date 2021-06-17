@@ -15,6 +15,9 @@ class ProcessorResource extends JsonResource
             'attributes' => [
                 'id'               => $this->id,
                 'user_id'          => $this->user_id,
+                'user_name'        => $this->user->name,
+                'user_last_name'   => $this->user->last_name,
+                'user_email'       => $this->user->email,
             ],
             'relationships' => [
                 'user' => [
