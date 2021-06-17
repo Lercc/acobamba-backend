@@ -20,6 +20,9 @@ use App\Http\Controllers\Employee\EmployeeOfficeController;
 use App\Http\Controllers\Employee\EmployeeSubofficeController;
 
 
+use App\Http\Controllers\Processor\ProcessorController;
+use App\Http\Controllers\Processor\ProcessorUserController;
+
 // Route::get('/', function () {
 //     return view('');
 // });
@@ -51,6 +54,9 @@ Route::apiResource('employees.users', EmployeeUserController::class)->only('inde
 Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');
 Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');
 
+/* Processor */
+Route::apiResource('processors', ProcessorController::class);
+Route::apiResource('processors.users', ProcessorUserController::class)->only('index');
 
 // Nested Resource
 // http://example.com/articles/1/author"
