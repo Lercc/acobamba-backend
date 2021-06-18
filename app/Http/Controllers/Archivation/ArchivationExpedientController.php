@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Archivation;
 use App\Models\Archivation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//falta importar ExpedientResource
+use App\Http\Resources\ExpedientResource;
 
 class ArchivationExpedientController extends Controller
 {
