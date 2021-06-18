@@ -30,6 +30,7 @@ use App\Http\Controllers\Expedient\ExpedientController;
 use App\Http\Controllers\Expedient\ExpedientUserController;
 use App\Http\Controllers\Expedient\ExpedientDerivationController;
 use App\Http\Controllers\Expedient\ExpedientArchivationController;
+use App\Http\Controllers\Expedient\ExpedientNotificationController;
 
 use App\Http\Controllers\Derivation\DerivationController;
 use App\Http\Controllers\Derivation\DerivationExpedientController;
@@ -42,8 +43,6 @@ use App\Http\Controllers\Archivation\ArchivationUserController;
 
 use App\Http\Controllers\Notification\NotificationController;
 use App\Http\Controllers\Notification\NotificationExpedientController;
-
-
 
 // Route::get('/', function () {
 //     return view('');
@@ -59,25 +58,25 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index');    
 /**
  *  User
  */
-Route::apiResource('users', UserController::class);                                            // OK
-Route::apiResource('users.roles', UserRoleController::class)->only('index');                   // OK
-Route::apiResource('users.expedients', UserExpedientController::class)->only('index');         // OK
-Route::apiResource('users.derivations',UserDerivationController::class)->only('index');
-Route::apiResource('users.archivations',UserArchivationController::class)->only('index');
+Route::apiResource('users', UserController::class);                                                 // OK
+Route::apiResource('users.roles', UserRoleController::class)->only('index');                        // OK
+Route::apiResource('users.expedients', UserExpedientController::class)->only('index');              // OK
+Route::apiResource('users.derivations',UserDerivationController::class)->only('index');             // OK
+Route::apiResource('users.archivations',UserArchivationController::class)->only('index');           // OK
 
 /* Office */
-Route::apiResource('offices', OfficeController::class);                                              // OK
-Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');           // OK
+Route::apiResource('offices', OfficeController::class);                                             // OK
+Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');          // OK
 
 /* SubOffices */
 Route::apiResource('suboffices', SubofficeController::class);                                        // OK
 Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index');           // OK
 
 /* Employee */
-Route::apiResource('employees', EmployeeController::class);                                    // OK
-Route::apiResource('employees.users', EmployeeUserController::class)->only('index');           // OK
-Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');       // OK
-Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index'); // OK
+Route::apiResource('employees', EmployeeController::class);                                          // OK
+Route::apiResource('employees.users', EmployeeUserController::class)->only('index');                 // OK
+Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');             // OK
+Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');       // OK
 Route::apiResource('employees.derivations', EmployeeDerivationController::class)->only('index');
 
 /* Processor */
@@ -91,25 +90,24 @@ Route::apiResource('expedients', ExpedientController::class);                   
 Route::apiResource('expedients.users', ExpedientUserController::class)->only('index');              // OK
 Route::apiResource('expedients.derivations', ExpedientDerivationController::class)->only('index');  // OK
 Route::apiResource('expedients.archivations', ExpedientArchivationController::class)->only('index');// OK
+Route::apiResource('expedients.notifications', ExpedientNotificationController::class)->only('index');// OK
 
 
 /* Derivation */
-Route::apiResource('derivations', DerivationController::class);
-Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');
-Route::apiResource('derivations.users', DerivationUserController::class)->only('index');
-Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');
+Route::apiResource('derivations', DerivationController::class);                                     // OK
+Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');  // OK
+Route::apiResource('derivations.users', DerivationUserController::class)->only('index');            // OK
+Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');    // OK
 
 /* Archivation */
-Route::apiResource('archivations', ArchivationController::class);
-Route::apiResource('archivations.expedients', ArchivationExpedientController::class)->only('index');
-Route::apiResource('archivations.users', ArchivationUserController::class)->only('index');
+Route::apiResource('archivations', ArchivationController::class);                                    // OK
+Route::apiResource('archivations.expedients', ArchivationExpedientController::class)->only('index'); // OK
+Route::apiResource('archivations.users', ArchivationUserController::class)->only('index');           // OK
 
 
 /* Notification */
-Route::apiResource('notifications', NotificationController::class);
-Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index'); 
-
-
+Route::apiResource('notifications', NotificationController::class);                                   // OK
+Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index');// OK
 
 // Nested Resource
 // http://example.com/articles/1/author"

@@ -33,22 +33,34 @@ class ExpedientResource extends JsonResource
                 'status'            => $this->status
             ],
             'relationships' => [
+                // relacion de dependencia hacia arriba con la tabla user
+                // el registro de la tabla expedient utiliza registros de la tabla user
                 'user' => [
                     'links' => [
                         'related' => route('expedients.users.index', $this->id)
                     ]
                 ],
+                // relacion de dependencia hacia abajo con la tabla derivations
+                // el registro de la tabla expediente es utilizada en la tabla derivations, archivation ,notifications
                 'derivations' => [
-                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                    'links' => [
+                        'related' => route('expedients.derivations.index' ,$this->id)
+                    ],
                 ],
                 'archivation' => [
-                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                    'links' => [
+                        'related' => route('expedients.archivations.index' ,$this->id)
+                    ],
                 ],
                 'notifications' => [
-                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                    'links' => [
+                        'related' => route('expedients.notifications.index' ,$this->id)
+                    ],
                 ],
             ],
-            'links' => []
+            'links' => [
+                'self' => route('expedients.show', $this->id)
+            ]
         ];
     }
 }
