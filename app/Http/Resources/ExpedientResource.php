@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class ExpedientResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        // return parent::toArray($request);
+        return [
+            'type'      => 'expedient',
+            'id'        => (string) $this->id,
+            'attributes'    => [
+                'id'                => $this->id,
+                'user_id'           => $this->user_id,
+                'user_name'         => $this->user->name,
+                'user_last_name'    => $this->user->last_name,
+                'user_email'        => $this->user->email,
+                'code'              => $this->code,
+                'document_type'     => $this->document_type,
+                'header'            => $this->header,
+                'subject'           => $this->subject,
+                'folios'            => $this->folios,
+                'file'              => $this->file,
+                'status'            => $this->status
+            ],
+            'relationships' => [
+                'user' => [
+                    'links' => [
+                        'related' => route('expedients.users.index', $this->id)
+                    ]
+                ],
+                'derivations' => [
+                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                ],
+                'archivation' => [
+                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                ],
+                'notifications' => [
+                    'links' => [],//pendiente  de la creacion  de los controladores anidados de piero
+                ],
+            ],
+            'links' => []
+        ];
+    }
+}

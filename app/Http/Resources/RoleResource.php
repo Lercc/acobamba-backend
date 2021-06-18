@@ -23,7 +23,7 @@ class RoleResource extends JsonResource
                 'name'      => $this->name,
                 'status'      => $this->status
             ],
-            'relations' => [
+            'relationships' => [
                 'users' => [
                     'links' => [
                         'related' => route('roles.users.index', $this->id)
