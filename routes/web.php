@@ -7,6 +7,7 @@ use App\Http\Controllers\Role\RoleUserController;
 
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserRoleController;
+use App\Http\Controllers\User\UserExpedientController;
 
 use App\Http\Controllers\Office\OfficeController;
 use App\Http\Controllers\Office\OfficeSubofficeController;
@@ -22,6 +23,9 @@ use App\Http\Controllers\Employee\EmployeeSubofficeController;
 use App\Http\Controllers\Processor\ProcessorController;
 use App\Http\Controllers\Processor\ProcessorUserController;
 
+use App\Http\Controllers\Expedient\ExpedientController;
+use App\Http\Controllers\Expedient\ExpedientUserController;
+
 use App\Http\Controllers\Derivation\DerivationController;
 use App\Http\Controllers\Derivation\DerivationExpedientController;
 use App\Http\Controllers\Derivation\DerivationUserController;
@@ -33,6 +37,7 @@ use App\Http\Controllers\Archivation\ArchivationUserController;
 
 use App\Http\Controllers\Notification\NotificationController;
 use App\Http\Controllers\Notification\NotificationExpedientController;
+
 
 
 // Route::get('/', function () {
@@ -51,6 +56,9 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index');
  */
 Route::apiResource('users', UserController::class);                                            // OK
 Route::apiResource('users.roles', UserRoleController::class)->only('index');                   // OK
+Route::apiResource('users.expedients', UserExpedientController::class)->only('index');         // OK
+// Route::apiResource('users.derivations', Controller::class)->only('index');
+// Route::apiResource('users.archivations', Controller::class)->only('index');
 
 /* Office */
 Route::apiResource('offices', OfficeController::class);                                        // OK
@@ -63,17 +71,21 @@ Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only
 /* Employee */
 Route::apiResource('employees', EmployeeController::class);                                    // OK
 Route::apiResource('employees.users', EmployeeUserController::class)->only('index');           // OK
-Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');
-Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');
+Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');       // OK
+Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index'); // OK
+// Route::apiResource('employees.derivations', Controller::class)->only('index');
 
 /* Processor */
-Route::apiResource('processors', ProcessorController::class);
-Route::apiResource('processors.users', ProcessorUserController::class)->only('index');
+Route::apiResource('processors', ProcessorController::class);                                  // OK
+Route::apiResource('processors.users', ProcessorUserController::class)->only('index');         // OK
 
-
-
-
-
+/**
+ *  Expedients
+ */ 
+Route::apiResource('expedients', ExpedientController::class);                                  // OK
+Route::apiResource('expedients.users', ExpedientUserController::class)->only('index');         // OK
+// Route::apiResource('expedients.derivation ', ExpedientUserController::class)->only('index');
+// Route::apiResource('expedients.arhcivation', ExpedientUserController::class)->only('index');
 
 
 /* Derivation */
