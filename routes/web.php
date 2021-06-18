@@ -27,6 +27,13 @@ use App\Http\Controllers\Derivation\DerivationExpedientController;
 use App\Http\Controllers\Derivation\DerivationUserController;
 use App\Http\Controllers\Derivation\DerivationEmployeeController;
 
+use App\Http\Controllers\Archivation\ArchivationController;
+use App\Http\Controllers\Archivation\ArchivationExpedientController;
+use App\Http\Controllers\Archivation\ArchivationUserController;
+
+use App\Http\Controllers\Notification\NotificationController;
+use App\Http\Controllers\Notification\NotificationExpedientController;
+
 
 // Route::get('/', function () {
 //     return view('');
@@ -69,20 +76,21 @@ Route::apiResource('processors.users', ProcessorUserController::class)->only('in
 
 
 
-
-
-
-
-
-
-
 /* Derivation */
 Route::apiResource('derivations', DerivationController::class);         
-Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');                           // OK
-Route::apiResource('derivations.users', DerivationUserController::class)->only('index');           // OK
-Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');
+Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');                           
+Route::apiResource('derivations.users', DerivationUserController::class)->only('index');           
+Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');   
+
+/* Archivation */
+Route::apiResource('archivations', ArchivationController::class);         
+Route::apiResource('archivations.expedients', ArchivationExpedientController::class)->only('index');                       
+Route::apiResource('archivations.users', ArchivationUserController::class)->only('index');          
 
 
+/* Notification */
+Route::apiResource('notifications', NotificationController::class);         
+Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index'); 
 
 
 

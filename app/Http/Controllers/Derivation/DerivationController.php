@@ -2,62 +2,40 @@
 
 namespace App\Http\Controllers\Derivation;
 
-use App\Http\Controllers\Controller;
 use App\Models\Derivation;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\DerivationResource;
+use App\Http\Resources\DerivationCollection;
 
 class DerivationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $derivations = Derivation::paginate(15);
+        return new DerivationCollection($derivations);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Derivation  $derivation
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Derivation $derivation)
     {
-        //
+        return new DerivationResource($derivation);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Derivation  $derivation
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Derivation $derivation)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Derivation  $derivation
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Derivation $derivation)
     {
         //
