@@ -22,7 +22,7 @@ class Archivation extends Model
  
     public function user()
     {
-        return $this->belongsTo(Expedient::class);
+        return $this->belongsTo(User::class);
     }
     
 }
