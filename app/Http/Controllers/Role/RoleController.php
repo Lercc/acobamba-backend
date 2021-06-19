@@ -7,6 +7,7 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Resources\RoleResource;
 use App\Http\Resources\RoleCollection;
+use App\Http\Requests\RoleRequest;
 
 class RoleController extends Controller
 {
@@ -16,9 +17,9 @@ class RoleController extends Controller
         return new RoleCollection($roles);
     }
 
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        return 'todo ok';
     }
 
     public function show(Role $role)
