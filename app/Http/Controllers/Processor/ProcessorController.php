@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Processor;
 use App\Models\Processor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProcessorRequest;
 use App\Http\Resources\ProcessorResource;
 use App\Http\Resources\ProcessorCollection;
 
@@ -18,7 +19,7 @@ class ProcessorController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ProcessorRequest $request)
     {
         //
     }

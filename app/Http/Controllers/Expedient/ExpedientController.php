@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Expedient;
 
 use App\Models\Expedient;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ExpedientRequest;
 use App\Http\Resources\ExpedientResource;
 use App\Http\Resources\ExpedientCollection;
-use Illuminate\Http\Request;
 
 class ExpedientController extends Controller
 {
@@ -16,7 +17,7 @@ class ExpedientController extends Controller
         return new ExpedientCollection($expedients);
     }
 
-    public function store(Request $request)
+    public function store(ExpedientRequest $request)
     {
         //
     }

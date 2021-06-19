@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Derivation;
 use App\Models\Derivation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DerivationRequest;
 use App\Http\Resources\DerivationResource;
 use App\Http\Resources\DerivationCollection;
 
@@ -18,7 +19,7 @@ class DerivationController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(DerivationRequest $request)
     {
         //
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Notification;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NotificationRequest;
 use App\Http\Resources\NotificationResource;
 use App\Http\Resources\NotificationCollection;
 
@@ -18,7 +19,7 @@ class NotificationController extends Controller
     }
 
   
-    public function store(Request $request)
+    public function store(NotificationRequest $request)
     {
         //
     }

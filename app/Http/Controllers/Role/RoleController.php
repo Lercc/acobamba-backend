@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Role;
 
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Http\Requests\RolRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\RoleResource;
 use App\Http\Resources\RoleCollection;
 use App\Http\Requests\RoleRequest;

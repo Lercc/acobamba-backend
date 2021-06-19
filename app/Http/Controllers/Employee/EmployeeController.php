@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employee;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\EmployeeCollection;
 
@@ -17,7 +18,7 @@ class EmployeeController extends Controller
         return new EmployeeCollection($employees);
     }
 
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         //
     }
