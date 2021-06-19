@@ -16,8 +16,8 @@ class NotificationRequest extends FormRequest
     {
         return [       
             'expedient_id'    => ['required', 'numeric'],
-            'exp_status'      => ['required', 'string', 'max:9'], 
-            'status'          => ['required', 'string', 'max:8'], 
+            'exp_status'      => ['required', 'string', 'max:9'],
+            'status'          => ['required', 'string', 'max:8']
         ];
     }
 }

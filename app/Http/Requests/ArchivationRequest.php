@@ -18,8 +18,8 @@ class ArchivationRequest extends FormRequest
         return [
             'expedient_id'    => ['required', 'numeric'],
             'user_id'         => ['required', 'numeric'],
-            'observations'    => ['required', 'string', 'max:200', 'regex:/^[\pL\s\-]+$/u'], 
-            'status'          => ['required', 'string', 'max:10'], 
+            'observations'    => ['required', 'string', 'max:200'],
+            'status'          => ['required', 'string', 'max:10']
         ];
     }
 }

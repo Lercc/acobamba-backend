@@ -24,8 +24,8 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          =>   ['required', 'string', 'max:7', 'regex:/^[\pL\s\-]+$/u'],
-            'status'        =>   ['required', 'string', 'max:11'],
+            'name'    => ['required', 'max:7', 'regex:/^[\pL\s\-]+$/u'],
+            'status'  => ['required', 'string', 'max:11']
         ];
     }
 }

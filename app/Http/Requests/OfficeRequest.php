@@ -16,8 +16,8 @@ class OfficeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'    => ['required', 'string', 'max:200', 'regex:/^[\pL\s\-]+$/u'], 
-            'status'    => ['required', 'string', 'max:11'], 
+            'name'      => ['required', 'max:200', 'regex:/^[\pL\s\-]+$/u'],
+            'status'    => ['required', 'string', 'max:11']
         ];
     }
 }

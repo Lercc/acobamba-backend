@@ -15,14 +15,15 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'role_id'         => ['required', 'numeric'],
-            'name'            => ['required', 'string', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
-            'last_name'       => ['required', 'string', 'max:120', 'regex:/^[\pL\s\-]+$/u'], 
-            'doc_type'        => ['required', 'string'], 
-            'doc_number'      => ['required', 'numeric', 'digits:11','unique:users,doc_number'], 
-            'email'           => ['required', 'string', 'email', 'unique:users,email'], 
-            'password'        => ['required', 'string', 'password', 'unique:users,password'], 
-            'status'          => ['required', 'string', 'max:11'], 
+            'role_id'                    => ['required', 'numeric'],
+            'name'                       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
+            'last_name'                  => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'], 
+            'doc_type'                   => ['required', 'string'], 
+            'doc_number'                 => ['required', 'numeric', 'digits:11','unique:users,doc_number'], 
+            'email'                      => ['required', 'string', 'email', 'unique:users,email'], 
+            'password'                   => ['required', 'min:8'], 
+            'password_confirmation'      => ['required', 'min:8', 'same:password'],
+            'status'                     => ['required', 'string', 'max:11'], 
         ];
     }
 }

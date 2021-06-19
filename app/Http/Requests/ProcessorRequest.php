@@ -15,7 +15,7 @@ class ProcessorRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'   => ['required', 'numeric'],
+            'user_id'   => ['required', 'numeric']
         ];
     }
 }

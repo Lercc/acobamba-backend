@@ -20,8 +20,8 @@ class SubofficeRequest extends FormRequest
     {
         return [
             'office_id'    => ['required', 'numeric'],
-            'name'         => ['required', 'string', 'max:200', 'regex:/^[\pL\s\-]+$/u'], 
-            'status'       => ['required', 'string', 'max:11'], 
+            'name'         => ['required', 'max:200', 'regex:/^[\pL\s\-]+$/u'],
+            'status'       => ['required', 'string', 'max:11']
         ];
     }
 }
