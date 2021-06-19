@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Suboffice;
 
+
 use App\Models\Suboffice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,11 +19,15 @@ class SubofficeController extends Controller
         return new SubofficeCollection($suboffices);
     }
 
-
+    // SubofficeRequest 
     public function store(SubofficeRequest $request)
     {
-        //
+        $suboffice = Suboffice::create($request->validated());
+        return new SubofficeResource($suboffice);
     }
+      
+       
+   
 
 
     public function show(Suboffice $suboffice)

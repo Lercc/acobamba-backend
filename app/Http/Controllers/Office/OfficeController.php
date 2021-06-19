@@ -21,7 +21,10 @@ class OfficeController extends Controller
 
     public function store(OfficeRequest $request)
     {
-        //
+   
+        $office = Office::create($request->validated());
+        $office->save();
+        return new OfficeResource($office);
     }
 
    
