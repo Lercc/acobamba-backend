@@ -13,8 +13,7 @@ class Employee extends Model
         'user_id',
         'office_id',
         'suboffice_id',
-        'employee_type',
-        
+        'employee_type'
     ];
 
     public function user()
