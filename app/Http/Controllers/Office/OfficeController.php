@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Office;
 use App\Models\Office;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OfficeRequest;
 use App\Http\Resources\OfficeResource;
 use App\Http\Resources\OfficeCollection;
 
@@ -18,7 +19,7 @@ class OfficeController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(OfficeRequest $request)
     {
         //
     }

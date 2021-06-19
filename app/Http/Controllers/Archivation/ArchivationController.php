@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Archivation;
 use App\Models\Archivation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArchivationRequest;
 use App\Http\Resources\ArchivationResource;
 use App\Http\Resources\ArchivationCollection;
 
@@ -18,7 +19,7 @@ class ArchivationController extends Controller
     }
 
   
-    public function store(Request $request)
+    public function store(ArchivationRequest $request)
     {
         //
     }

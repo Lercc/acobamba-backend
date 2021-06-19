@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Role;
 
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Http\Requests\RolRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\RoleResource;
 use App\Http\Resources\RoleCollection;
 
@@ -16,7 +17,7 @@ class RoleController extends Controller
         return new RoleCollection($roles);
     }
 
-    public function store(Request $request)
+    public function store(RolRequest $request)
     {
         //
     }
