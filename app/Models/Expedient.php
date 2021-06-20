@@ -10,7 +10,9 @@ class Expedient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        // 'user_id',
+        'processor_id',
+        'employee_id',
         'code',
         'document_type',
         'header',
@@ -21,9 +23,19 @@ class Expedient extends Model
     ];
 
     //tabla Expedient - User
-    public function user()
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function processor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Processor::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
     }
     
     public function notifications(){ 
@@ -37,6 +49,4 @@ class Expedient extends Model
     public function archivation(){ 
         return $this->hasOne(Archivation::class);
     }
-
-    
 }

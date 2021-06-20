@@ -58,7 +58,23 @@ class EmployeeController extends Controller
 
     public function update(Request $request, Employee $employee)
     {
-        //
+        // campos que se van a actualizar
+        
+        // USER
+        // 'role_id',
+        // 'name',
+        // 'last_name', 
+        // 'doc_type', 
+        // 'doc_number',
+        // 'email',
+        // 'password',
+        // 'status'
+        //EMPLEADO
+        // 'user_id',
+        // 'office_id',
+        // 'suboffice_id',
+        // 'employee_type'
+
     }
 
     public function destroy(Employee $employee)

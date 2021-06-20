@@ -39,11 +39,11 @@ class UserResource extends JsonResource
                         'id'    => (string) $this->role_id,
                     ]
                 ],
-                'expedients' => [
-                    'links' => [
-                        'related' => route('users.expedients.index', $this->id)
-                    ]
-                ]
+                // 'expedients' => [
+                //     'links' => [
+                //         'related' => route('users.expedients.index', $this->id)
+                //     ]
+                // ]
             ],
             'links' => [
                 'self' => route('users.show', $this->id)

@@ -33,7 +33,13 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        //
+        // Definir que se le va a permitir actualizar respecto a admin
+        /**
+         * name
+         * last_name 
+         * email  [******]@admin.com
+         * status
+         */
     }
 
     public function destroy(User $user)

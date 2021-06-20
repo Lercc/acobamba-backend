@@ -15,7 +15,9 @@ class CreateExpedientsTable extends Migration
     {
         Schema::create('expedients', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            // $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('processor_id')->unsigned()->nullable();
+            $table->bigInteger('employee_id')->unsigned()->nullable();
             $table->string('code','30'); 
             $table->string('document_type','200');
             $table->string('header','220');                    //  document_type + date
@@ -25,7 +27,9 @@ class CreateExpedientsTable extends Migration
             $table->string('status', '11');                    // activado desactivado
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('processor_id')->references('id')->on('processors');
         });
     }
 
