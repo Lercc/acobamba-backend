@@ -21,7 +21,8 @@ class NotificationController extends Controller
   //
     public function store(NotificationRequest $request)
     {
-    return 'ok';
+          $notification = Notification::create($request->validated());
+           return new NotificationResource($notification);
     }
 
   

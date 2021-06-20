@@ -11,7 +11,7 @@ class NotificationRequest extends FormRequest
 
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
@@ -25,8 +25,8 @@ class NotificationRequest extends FormRequest
         
         return [       
             'expedient_id'    => ['required', 'numeric',Rule::in($arrayIdExpedient)],
-            'exp_status'      => ['required', 'string', 'max:11', Rule::in(['arhivado','derivado'])],
-            'status'          => ['required', 'string', 'max:11', Rule::in(['visto', 'no visto'])]
+            'exp_status'      => ['required', 'string', 'max:11', Rule::in(['archivado','derivado'])],
+            'status'          => ['required', 'string', 'max:8', Rule::in(['visto', 'no visto'])]
         ];
     }
 }
