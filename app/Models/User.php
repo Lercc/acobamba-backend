@@ -58,9 +58,9 @@ class User extends Authenticatable
         return $this->HasOne(Employee::class);
     }
 
-    public function expedients(){
-        return $this->hasMany(Expedient::class);
-    }
+    // public function expedients(){
+    //     return $this->hasMany(Expedient::class);
+    // }
 
     // public function notifications(){ 
     //     return $this->hasMany(Notification::class);

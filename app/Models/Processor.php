@@ -17,4 +17,8 @@ class Processor extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function expedients(){
+        return $this->hasMany(Expedient::class);
+    }
 }

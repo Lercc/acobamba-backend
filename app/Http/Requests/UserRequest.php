@@ -18,7 +18,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
 
-        $objectAdminRole =  Role::where('name','admin')->get('id');
+        $objectAdminRole =  Role::where('name','Admin')->get('id');
         $arrayIdRoles= [];
         foreach ($objectAdminRole as $el) {
             array_push($arrayIdRoles, $el->id);
@@ -28,12 +28,9 @@ class UserRequest extends FormRequest
             'role_id'               => ['required', 'numeric', Rule::in($arrayIdRoles)],
             'name'                  => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
             'last_name'             => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
-
             'doc_type'              => ['required', 'string', Rule::in(['dni', 'extranjeria'])],
-
-            'doc_number'            => ['required', 'numeric','unique:users,doc_number'],
-            'doc_number'            => $this->doc_type == 'dni' ? ['digits:8'] : ($this->doc_type == 'extranjeria' ? ['digits:11'] : new UserDocNumberDocType($this->doc_type) ), //'exclude_if:doc_type,false'
-            
+            'doc_number'            => ['required', 'numeric','unique:users,doc_number', 
+                                        $this->doc_type == 'dni' ? 'digits:8' : ($this->doc_type == 'extranjeria' ? 'digits:11' : new UserDocNumberDocType($this->doc_type))],
             'email'                 => ['required', 'string', 'email', 'unique:users,email'],
             'password'              => ['required', 'min:8'], 
             'password_confirmation' => ['required', 'min:8', 'same:password'],

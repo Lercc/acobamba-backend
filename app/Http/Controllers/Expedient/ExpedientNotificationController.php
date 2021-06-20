@@ -11,7 +11,7 @@ use App\Models\Notification;
 class ExpedientNotificationController extends Controller
 {
     public function index(Expedient $expedient) {
-        $notifications = Notification::where('expediente_id', $expedient->id)->paginate(15);
+        $notifications = Notification::where('expedient_id', $expedient->id)->paginate(15);
         
         if (sizeof($notifications) != 0) {
             return new NotificationCollection($notifications);

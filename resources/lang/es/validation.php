@@ -187,7 +187,9 @@ return [
         'title'                 => 'título',
         'username'              => 'usuario',
         'year'                  => 'año',
-        'full_name'             => 'nombre completo'
+        'full_name'             => 'nombre completo',
+        'employee_type'         => 'tipo de empleado'
+        
     ],
 
 ];

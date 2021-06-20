@@ -13,8 +13,7 @@ class Employee extends Model
         'user_id',
         'office_id',
         'suboffice_id',
-        'employee_type',
-        
+        'employee_type'
     ];
 
     public function user()
@@ -30,6 +29,10 @@ class Employee extends Model
     public function suboffice()
     {
         return $this->belongsTo(Suboffice::class);
+    }
+
+    public function expedients(){
+        return $this->hasMany(Expedient::class);
     }
 
     // public function notifications(){ 
