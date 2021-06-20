@@ -18,10 +18,10 @@ class NotificationController extends Controller
         return new NotificationCollection($notifications);
     }
 
-  
+  //
     public function store(NotificationRequest $request)
     {
-        //
+    return 'ok';
     }
 
   

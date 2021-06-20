@@ -18,10 +18,11 @@ class ArchivationController extends Controller
         return new ArchivationCollection($archivations);
     }
 
-  
+  //ArchivationRequest
     public function store(ArchivationRequest $request)
     {
-        //
+        $archivation = Archivation::create($request->validated());
+        return new ArchivationResource($archivation);
     }
 
     public function show(Archivation $archivation)

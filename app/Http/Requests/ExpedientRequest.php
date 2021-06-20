@@ -23,7 +23,7 @@ class ExpedientRequest extends FormRequest
             'subject'         => ['required', 'string', 'max:200'],
             'folios'          => ['required', 'numeric', 'digits:3'],
             'file'            => ['required', 'string'],
-            'status'          => ['required', 'string', 'max:11'],
+            'status'          => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])],
         ];
     }
 }

@@ -9,7 +9,7 @@ class Archivation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'expediente_id',
+        'expedient_id',
         'user_id',
         'observations',
         'status'
