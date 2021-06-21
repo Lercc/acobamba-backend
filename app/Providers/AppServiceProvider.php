@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Archivation;
+use App\Observers\ArchivationObserver;
+use App\Models\Derivation;
+use App\Observers\DerivationObserver;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Derivation::observe(DerivationObserver::class);
+        Archivation::observe(ArchivationObserver::class);
     }
 }
