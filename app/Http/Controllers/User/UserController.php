@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UserCollection;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -31,15 +32,14 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        // Definir que se le va a permitir actualizar respecto a admin
         /**
-         * name
-         * last_name 
-         * email  [******]@admin.com
-         * status
+         * Definir que se le va a permitir actualizar respecto a admin:
+         * name, last_name, email[******]@admin.com, status
          */
+        $user->update($request->validated());
+        return new UserResource($user);
     }
 
     public function destroy(User $user)
