@@ -20,7 +20,7 @@ class ExpedientController extends Controller
     public function store(ExpedientRequest $request)
     {
         $file = $request->file('file')->store('file/expedients', 'public');
-        $expedient = Expedient::create($request->except('file')+[ 'file' => $file]);
+        $expedient = Expedient::create($request->except('file')+[ 'file' => $file] );
         return new ExpedientResource($expedient);
         
     }

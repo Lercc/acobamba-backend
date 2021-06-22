@@ -42,7 +42,7 @@ class EmployeeController extends Controller
             $employee->save();
 
             DB::commit();
-        }  catch (Exception $e){
+        } catch (Exception $e){
             DB::rollBack();
         }
         return new EmployeeResource($employee);

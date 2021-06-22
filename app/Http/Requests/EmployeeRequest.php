@@ -20,9 +20,9 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         // role                              1 admin
-        $objectAdminRole =  Role::where('name','Interno')->get('id');
+        $objectInternoRole =  Role::where('name','Interno')->get('id');
         $arrayIdRoles= [];
-        foreach ($objectAdminRole as $el) {
+        foreach ($objectInternoRole as $el) {
             array_push($arrayIdRoles, $el->id);
         }
         
