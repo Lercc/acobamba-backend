@@ -41,6 +41,7 @@ use App\Http\Controllers\Expedient\ExpedientNotificationController;
 use App\Http\Controllers\Expedient\ExpedientProcessorController;
 use App\Http\Controllers\Expedient\ExpedientEmployeeController;
 
+use App\Http\Controllers\Derivation\DerivationChangeStateController;
 use App\Http\Controllers\Derivation\DerivationController;
 use App\Http\Controllers\Derivation\DerivationExpedientController;
 use App\Http\Controllers\Derivation\DerivationUserController;
@@ -129,6 +130,7 @@ Route::apiResource('expedients.processors', ExpedientProcessorController::class)
 Route::apiResource('expedients.employees', ExpedientEmployeeController::class)->only('index');         // NUEVO OK
 
 /* Derivation */
+Route::put('changeDerivationState/{derivation}', [ DerivationChangeStateController::class, 'changeState' ]);
 Route::apiResource('derivations', DerivationController::class);                                     // OK
 Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');  // OK
 Route::apiResource('derivations.users', DerivationUserController::class)->only('index');            // OK
