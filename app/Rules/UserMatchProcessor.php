@@ -3,18 +3,19 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use App\Models\Processor;
 
-class UserDocNumberDocType implements Rule
+class UserMatchProcessor implements Rule
 {
-    public $DOC_TYPE;
+    public $PROCESSOR_ID;
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct($pDocType)
+    public function __construct($pProcesorId)
     {
-        $this->DOC_TYPE = $pDocType;
+        $this->PROCESSOR_ID = $pProcesorId;
     }
 
     /**
@@ -26,8 +27,8 @@ class UserDocNumberDocType implements Rule
      */
     public function passes($attribute, $value)
     {
-        // dd($this->DOC_TYPE);
-        return $this->DOC_TYPE == 'dni' || $this->DOC_TYPE == 'extranjeria';
+        $userID = Processor::find($this->PROCESSOR_ID)->user_id;
+        return $value == $userID;
     }
 
     /**
@@ -37,6 +38,6 @@ class UserDocNumberDocType implements Rule
      */
     public function message()
     {
-        return 'Ingrese un tipo de documento válido';
+        return 'El usuario ingresado no se relaciona con el tramitante';
     }
 }

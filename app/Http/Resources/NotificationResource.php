@@ -17,8 +17,9 @@ class NotificationResource extends JsonResource
                 'id'             => $this->id , 
                 'expedient_id'   => $this->expedient_id,
                 'expedient_code' => $this->expedient->code, 
-                'exp_status'   => $this->exp_status,
-                'status'   => $this->status,
+                'area'           => $this->area,
+                'exp_status'     => $this->exp_status,
+                'status'         => $this->status,
             ],
 
             'relationships' => [

@@ -22,9 +22,10 @@ class NotificationFactory extends Factory
     public function definition()
     {
         return [
-            'expedient_id'       => rand(1,60),  
-            'exp_status'         =>  $this->faker->randomElement(['derivado','archivado']),
-            'status'             => $this->faker->randomElement(['visto','no visto']),      
+            'expedient_id'       => rand(1,60),
+            'area'               => $this->faker->randomElement(['RRHH','Administracion']),
+            'exp_status'         => $this->faker->randomElement(['derivado','archivado']),
+            'status'             => $this->faker->randomElement(['visto','no visto'])
         ];
     }
 }

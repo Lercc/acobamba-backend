@@ -3,18 +3,18 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-
-class UserDocNumberDocType implements Rule
+use App\Models\Employee;
+class UserMatchEmployee implements Rule
 {
-    public $DOC_TYPE;
+    public $EMPLOYEE_ID;
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct($pDocType)
+    public function __construct($pEmployeeId)
     {
-        $this->DOC_TYPE = $pDocType;
+        $this->EMPLOYEE_ID = $pEmployeeId;
     }
 
     /**
@@ -26,8 +26,8 @@ class UserDocNumberDocType implements Rule
      */
     public function passes($attribute, $value)
     {
-        // dd($this->DOC_TYPE);
-        return $this->DOC_TYPE == 'dni' || $this->DOC_TYPE == 'extranjeria';
+        $userID = Employee::find($this->EMPLOYEE_ID)->user_id;
+        return $value == $userID;
     }
 
     /**
@@ -37,6 +37,6 @@ class UserDocNumberDocType implements Rule
      */
     public function message()
     {
-        return 'Ingrese un tipo de documento válido';
+        return 'El usuario ingresado no se relaciona con el empleado';
     }
 }

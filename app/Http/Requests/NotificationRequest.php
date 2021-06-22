@@ -16,15 +16,15 @@ class NotificationRequest extends FormRequest
 
     public function rules()
     {
-        $objectExpedient =  Expedient::get('id');
-      
-        $arrayIdExpedient= [];
-        foreach ($objectExpedient as $exp) {
-            array_push($arrayIdExpedient, $exp->id);
+        $objectExpedients =  Expedient::get('id');
+        $arrayIdExpedients= [];
+        foreach ($objectExpedients as $exp) {
+            array_push($arrayIdExpedients, $exp->id);
         }
         
         return [       
-            'expedient_id'    => ['required', 'numeric',Rule::in($arrayIdExpedient)],
+            'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
+            'area'            => ['required', 'string', 'max:200'],
             'exp_status'      => ['required', 'string', 'max:11', Rule::in(['archivado','derivado'])],
             'status'          => ['required', 'string', 'max:8', Rule::in(['visto', 'no visto'])]
         ];

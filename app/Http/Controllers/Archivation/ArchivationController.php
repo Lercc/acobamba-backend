@@ -30,10 +30,13 @@ class ArchivationController extends Controller
         return new ArchivationResource($archivation);
     }
 
-
     public function update(Request $request, Archivation $archivation)
     {
         //
+        // 'expedient_id',
+        // 'user_id',
+        // 'observations',
+        // 'status'
     }
 
     public function destroy(Archivation $archivation)

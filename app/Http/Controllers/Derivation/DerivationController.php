@@ -21,8 +21,8 @@ class DerivationController extends Controller
 
     public function store(DerivationRequest $request)
     {
-           $derivation = Derivation::create($request->validated());
-           return new DerivationResource($derivation);
+        $derivation = Derivation::create($request->validated());
+        return new DerivationResource($derivation);
     }
 
 
@@ -35,6 +35,10 @@ class DerivationController extends Controller
     public function update(Request $request, Derivation $derivation)
     {
         //
+        // 'expedient_id',
+        // 'user_id',
+        // 'employee_id',
+        // 'status'
     }
 
 

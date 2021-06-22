@@ -18,26 +18,24 @@ class ArchivationRequest extends FormRequest
   
     public function rules()
     {
-            $objectExpedient =  Expedient::get('id');
-        
-            $arrayIdExpedient= [];
-            foreach ($objectExpedient as $dev) {
-                array_push($arrayIdExpedient, $dev->id);
+            $objectExpedients = Expedient::get('id');
+            $arrayIdExpedients = [];
+            foreach ($objectExpedients as $dev) {
+                array_push($arrayIdExpedients, $dev->id);
             }
         
         
-            $objectUser =  User::get('id');
-          
-            $arrayIdUser= [];
-            foreach ($objectUser as $us) {
-                array_push($arrayIdUser, $us->id);
+            $objectUsers = User::get('id');
+            $arrayIdUsers = [];
+            foreach ($objectUsers as $us) {
+                array_push($arrayIdUsers, $us->id);
         
             }
                 
 
         return [
-            'expedient_id'    => ['required', 'numeric',Rule::in($arrayIdExpedient)],
-            'user_id'         => ['required', 'numeric',Rule::in($arrayIdUser)],
+            'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
+            'user_id'         => ['required', 'numeric', Rule::in($arrayIdUsers)],
             'observations'    => ['required', 'string', 'max:200'],
             'status'          => ['required', 'string', 'max:11', Rule::in(['archivado'])]
         ];
