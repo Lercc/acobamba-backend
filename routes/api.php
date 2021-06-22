@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Login\LoginController;
 
+use App\Http\Controllers\Logout\LogoutController;
+
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\RoleUserController;
 
@@ -76,7 +78,7 @@ Route::post('login', [ LoginController::class, 'login' ]);
 /**
  * Logout
  */
-// Route::post('logout', [ LoginController::class, 'logut' ]);
+Route::post('logout', [ LogoutController::class, 'logout' ])->middleware('auth:sanctum');
 
 
 /**
