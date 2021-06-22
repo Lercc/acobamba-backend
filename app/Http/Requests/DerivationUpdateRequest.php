@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Employee;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OfficeUpdateRequest extends FormRequest
+class DerivationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,15 @@ class OfficeUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [            
-            'name'       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
-            'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])]
+        $objectEmployee = Employee::get('id');
+        $arrayEmployee= [];
+        foreach ($objectEmployee as $el) {
+            array_push($arrayEmployee, $el->id);
+        }
+        
+        return [
+            'employee_id'  => ['required', 'numeric', Rule::in($arrayEmployee)],
+            'status'       => ['required', 'string', 'max:11', Rule::in(['nuevo'])]
         ];
     }
-    
 }

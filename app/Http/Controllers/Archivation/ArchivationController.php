@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArchivationRequest;
 use App\Http\Resources\ArchivationResource;
 use App\Http\Resources\ArchivationCollection;
+use App\Http\Requests\ArchivationUpdateRequest;
 
 class ArchivationController extends Controller
 {
@@ -30,13 +31,11 @@ class ArchivationController extends Controller
         return new ArchivationResource($archivation);
     }
 
-    public function update(Request $request, Archivation $archivation)
+    public function update(ArchivationUpdateRequest $request, Archivation $archivation)
     {
-        //
-        // 'expedient_id',
-        // 'user_id',
-        // 'observations',
-        // 'status'
+        
+        $archivation->update($request->validated());
+        return new ArchivationResource($archivation);
     }
 
     public function destroy(Archivation $archivation)

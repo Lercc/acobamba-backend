@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DerivationRequest;
 use App\Http\Resources\DerivationResource;
 use App\Http\Resources\DerivationCollection;
+use App\Http\Requests\DerivationUpdateRequest;
 
 class DerivationController extends Controller
 {
@@ -32,13 +33,10 @@ class DerivationController extends Controller
     }
 
 
-    public function update(Request $request, Derivation $derivation)
+    public function update(DerivationUpdateRequest $request, Derivation $derivation)
     {
-        //
-        // 'expedient_id',
-        // 'user_id',
-        // 'employee_id',
-        // 'status'
+      $derivation->update($request->validated());
+      return new DerivationResource($derivation);
     }
 
 

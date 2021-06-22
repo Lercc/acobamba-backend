@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OfficeRequest;
 use App\Http\Resources\OfficeResource;
 use App\Http\Resources\OfficeCollection;
+use App\Http\Requests\OfficeUpdateRequest;
 
 class OfficeController extends Controller
 {
@@ -34,9 +35,10 @@ class OfficeController extends Controller
     }
 
  
-    public function update(Request $request, Office $office)
+    public function update(OfficeUpdateRequest $request, Office $office)
     {
-        //
+        $office->update($request->validated());
+        return new OfficeResource($office);
     }
 
     public function destroy(Office $office)
