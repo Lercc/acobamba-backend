@@ -35,6 +35,10 @@ class DerivationController extends Controller
     public function update(Request $request, Derivation $derivation)
     {
         //
+        // 'expedient_id',
+        // 'user_id',
+        // 'employee_id',
+        // 'status'
     }
 
 
