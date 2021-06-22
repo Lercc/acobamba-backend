@@ -7,6 +7,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\EmployeeCollection;
 use Illuminate\Support\Facades\DB;
@@ -44,9 +45,7 @@ class EmployeeController extends Controller
         }  catch (Exception $e){
             DB::rollBack();
         }
-
         return new EmployeeResource($employee);
-
     }
 
 
@@ -56,25 +55,26 @@ class EmployeeController extends Controller
     }
 
 
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
         // campos que se van a actualizar
-        
-        // USER
-        // 'role_id',
-        // 'name',
-        // 'last_name', 
-        // 'doc_type', 
-        // 'doc_number',
-        // 'email',
-        // 'password',
-        // 'status'
-        //EMPLEADO
-        // 'user_id',
-        // 'office_id',
-        // 'suboffice_id',
-        // 'employee_type'
+        // USER : 'role_id', 'name', 'last_name', 'doc_type', 'doc_number', 'email', 'status'
+        // EMPLEADO : 'user_id', 'office_id', 'suboffice_id',  'employee_type'
+        try {
+           DB::beginTransaction();
 
+           // user
+           $user = User::find($employee->user_id);
+           $user->update($request->except(['id']));
+           
+           // employee
+           $employee->update($request->validated());
+
+           DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+        return new EmployeeResource($employee);
     }
 
     public function destroy(Employee $employee)

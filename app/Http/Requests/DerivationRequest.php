@@ -26,20 +26,19 @@ class DerivationRequest extends FormRequest
         foreach ($objectExpedients as $dev) {
             array_push($arrayIdExpedients, $dev->id);
         }
+
+        $objectUsers =  User::get('id');
+        $arrayIdUsers = [];
+        foreach ($objectUsers as $ius) {
+            array_push($arrayIdUsers, $ius->id);
     
-        
-            $objectUsers =  User::get('id');
-            $arrayIdUsers = [];
-            foreach ($objectUsers as $ius) {
-                array_push($arrayIdUsers, $ius->id);
-        
+        }
+
+        $objectEmployees =  Employee::get('id');
+        $arrayIdEmployees = [];
+        foreach ($objectEmployees as $empl) {
+            array_push($arrayIdEmployees, $empl->id);
             }
-                
-            $objectEmployees =  Employee::get('id');
-            $arrayIdEmployees = [];
-            foreach ($objectEmployees as $empl) {
-                array_push($arrayIdEmployees, $empl->id);
-              }
   
         return [
             'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
