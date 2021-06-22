@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OfficeUpdateRequest extends FormRequest
+class ArchivationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +23,8 @@ class OfficeUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [            
-            'name'       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
-            'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])]
+        return [
+            'observations'    => ['required', 'string', 'max:200'],
         ];
     }
-    
 }

@@ -31,10 +31,10 @@ class SubofficeUpdateRequest extends FormRequest
             array_push($arrayOffice, $el->id);
         }
 
-       // $office = Office::find($this->id);
+
         
         return [
-            //'id'         => ['required', 'numeric', Rule::in($arrayOffice)],
+         
             'office_id'  => ['required', 'numeric', Rule::in($arrayOffice)],
             'name'       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
             'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])]
