@@ -85,66 +85,66 @@ Route::post('logout', [ LogoutController::class, 'logout' ])->middleware('auth:s
 /**
  *  Roles
  */
-Route::apiResource('roles', RoleController::class);                                                  // OK
-Route::apiResource('roles.users', RoleUserController::class)->only('index');                         // OK
+Route::apiResource('roles', RoleController::class)->middleware('auth:sanctum');                                                  // OK
+Route::apiResource('roles.users', RoleUserController::class)->only('index')->middleware('auth:sanctum');                         // OK
 
 /**
  *  User
  */
-Route::apiResource('users', UserController::class);                                                 // OK
-Route::apiResource('users.roles', UserRoleController::class)->only('index');                        // OK
+Route::apiResource('users', UserController::class)->middleware('auth:sanctum');                                                 // OK
+Route::apiResource('users.roles', UserRoleController::class)->only('index')->middleware('auth:sanctum');                        // OK
 // Route::apiResource('users.expedients', UserExpedientController::class)->only('index');           // OK
-Route::apiResource('users.derivations',UserDerivationController::class)->only('index');             // OK
-Route::apiResource('users.archivations',UserArchivationController::class)->only('index');           // OK
+Route::apiResource('users.derivations',UserDerivationController::class)->only('index')->middleware('auth:sanctum');             // OK
+Route::apiResource('users.archivations',UserArchivationController::class)->only('index')->middleware('auth:sanctum');           // OK
 
 /* Office */
-Route::apiResource('offices', OfficeController::class);                                             // OK
-Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index');          // OK
+Route::apiResource('offices', OfficeController::class)->middleware('auth:sanctum');                                             // OK
+Route::apiResource('offices.suboffices', OfficeSubofficeController::class)->only('index')->middleware('auth:sanctum');          // OK
 
 /* SubOffices */
-Route::apiResource('suboffices', SubofficeController::class);                                        // OK
-Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index');           // OK
+Route::apiResource('suboffices', SubofficeController::class)->middleware('auth:sanctum');                                        // OK
+Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index')->middleware('auth:sanctum');           // OK
 
 /* Employee */
-Route::apiResource('employees', EmployeeController::class);                                          // OK
-Route::apiResource('employees.users', EmployeeUserController::class)->only('index');                 // OK
-Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index');             // OK
-Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index');       // OK
-Route::apiResource('employees.derivations', EmployeeDerivationController::class)->only('index');
-Route::apiResource('employees.expedients', EmployeeExpedientController::class)->only('index');       // NUEVO OK
+Route::apiResource('employees', EmployeeController::class)->middleware('auth:sanctum');                                          // OK
+Route::apiResource('employees.users', EmployeeUserController::class)->only('index')->middleware('auth:sanctum');                 // OK
+Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index')->middleware('auth:sanctum');             // OK
+Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->only('index')->middleware('auth:sanctum');       // OK
+Route::apiResource('employees.derivations', EmployeeDerivationController::class)->only('index')->middleware('auth:sanctum');
+Route::apiResource('employees.expedients', EmployeeExpedientController::class)->only('index')->middleware('auth:sanctum');       // NUEVO OK
 
 /* Processor */
-Route::apiResource('processors', ProcessorController::class);                                        // OK
-Route::apiResource('processors.users', ProcessorUserController::class)->only('index');               // OK
-Route::apiResource('processors.expedients', ProcessorExpedientController::class)->only('index');     // NUEVO OK
+Route::apiResource('processors', ProcessorController::class)->middleware('auth:sanctum');                                        // OK
+Route::apiResource('processors.users', ProcessorUserController::class)->only('index')->middleware('auth:sanctum');               // OK
+Route::apiResource('processors.expedients', ProcessorExpedientController::class)->only('index')->middleware('auth:sanctum');     // NUEVO OK
 
 /**
  *  Expedients
  */ 
-Route::apiResource('expedients', ExpedientController::class);                                          // OK
+Route::apiResource('expedients', ExpedientController::class)->middleware('auth:sanctum');                                          // OK
 // Route::apiResource('expedients.users', ExpedientUserController::class)->only('index');              // OK
-Route::apiResource('expedients.derivations', ExpedientDerivationController::class)->only('index');     // OK
-Route::apiResource('expedients.archivations', ExpedientArchivationController::class)->only('index');   // OK
-Route::apiResource('expedients.notifications', ExpedientNotificationController::class)->only('index'); // OK
-Route::apiResource('expedients.processors', ExpedientProcessorController::class)->only('index');         // NUEVO OK
-Route::apiResource('expedients.employees', ExpedientEmployeeController::class)->only('index');         // NUEVO OK
+Route::apiResource('expedients.derivations', ExpedientDerivationController::class)->only('index')->middleware('auth:sanctum');     // OK
+Route::apiResource('expedients.archivations', ExpedientArchivationController::class)->only('index')->middleware('auth:sanctum');   // OK
+Route::apiResource('expedients.notifications', ExpedientNotificationController::class)->only('index')->middleware('auth:sanctum'); // OK
+Route::apiResource('expedients.processors', ExpedientProcessorController::class)->only('index')->middleware('auth:sanctum');         // NUEVO OK
+Route::apiResource('expedients.employees', ExpedientEmployeeController::class)->only('index')->middleware('auth:sanctum');         // NUEVO OK
 
 /* Derivation */
-Route::put('changeDerivationState/{derivation}', [ DerivationChangeStateController::class, 'changeState' ]);
-Route::apiResource('derivations', DerivationController::class);                                     // OK
-Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index');  // OK
-Route::apiResource('derivations.users', DerivationUserController::class)->only('index');            // OK
-Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index');    // OK
+Route::put('changeDerivationState/{derivation}', [ DerivationChangeStateController::class, 'changeState' ])->middleware('auth:sanctum');
+Route::apiResource('derivations', DerivationController::class)->middleware('auth:sanctum');                                     // OK
+Route::apiResource('derivations.expedients', DerivationExpedientController::class)->only('index')->middleware('auth:sanctum');  // OK
+Route::apiResource('derivations.users', DerivationUserController::class)->only('index')->middleware('auth:sanctum');            // OK
+Route::apiResource('derivations.employees', DerivationEmployeeController::class)->only('index')->middleware('auth:sanctum');    // OK
 
 /* Archivation */
-Route::apiResource('archivations', ArchivationController::class);                                    // OK
-Route::apiResource('archivations.expedients', ArchivationExpedientController::class)->only('index'); // OK
-Route::apiResource('archivations.users', ArchivationUserController::class)->only('index');           // OK
+Route::apiResource('archivations', ArchivationController::class)->middleware('auth:sanctum');                                    // OK
+Route::apiResource('archivations.expedients', ArchivationExpedientController::class)->only('index')->middleware('auth:sanctum'); // OK
+Route::apiResource('archivations.users', ArchivationUserController::class)->only('index')->middleware('auth:sanctum');           // OK
 
 
 /* Notification */
-Route::apiResource('notifications', NotificationController::class);                                   // OK
-Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index');// OK
+Route::apiResource('notifications', NotificationController::class)->middleware('auth:sanctum');                                   // OK
+Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index')->middleware('auth:sanctum');// OK
 
 // Nested Resource
 // http://example.com/articles/1/author"
