@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Suboffice;
 
 
-use App\Models\Suboffice;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubofficeRequest;
 use App\Http\Resources\SubofficeResource;
 use App\Http\Resources\SubofficeCollection;
+use App\Http\Requests\SubofficeUpdateRequest;
 
 class SubofficeController extends Controller
 {
@@ -19,8 +20,8 @@ class SubofficeController extends Controller
         return new SubofficeCollection($suboffices);
     }
 
-    // SubofficeRequest 
-    public function store(SubofficeRequest $request)
+    
+    public function store( SubofficeRequest $request)
     {
         $suboffice = Suboffice::create($request->validated());
         return new SubofficeResource($suboffice);
@@ -36,9 +37,11 @@ class SubofficeController extends Controller
     }
 
 
-    public function update(Request $request, Suboffice $suboffice)
+    public function update(SubofficeUpdateRequest $request, Suboffice $suboffice)
     {
         //
+        return 'todo ok validaoo';
+ 
     }
 
 
