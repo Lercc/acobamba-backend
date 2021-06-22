@@ -15,13 +15,14 @@ class ExpedientController extends Controller
     {
         $expedients = Expedient::paginate(15);
         return new ExpedientCollection($expedients);
+  
     }
 
     public function store(ExpedientRequest $request)
     {
-        return 'todo ok';
-        // $expedient = Expedient::create($request->validated());
-        // return new ExpedientResource($expedient);
+   
+        $expedient = Expedient::create($request->validated());
+        return new ExpedientResource($expedient);
     }
 
     public function show(Expedient $expedient)
