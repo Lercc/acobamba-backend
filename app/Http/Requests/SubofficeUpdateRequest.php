@@ -36,7 +36,7 @@ class SubofficeUpdateRequest extends FormRequest
         return [
          
             'office_id'  => ['required', 'numeric', Rule::in($arrayOffice)],
-            'name'       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
+            'name'       => ['required', 'max:80', 'regex:/^[\pL\s\.-]+$/u'],
             'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])]
         ];
     }

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Login\LoginController;
+
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\RoleUserController;
 
@@ -63,6 +65,18 @@ use App\Http\Controllers\Notification\NotificationExpedientController;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+
+/**
+ * Login
+ */
+
+Route::post('login', [ LoginController::class, 'login' ]);
+
+/**
+ * Logout
+ */
+// Route::post('logout', [ LoginController::class, 'logut' ]);
 
 
 /**
