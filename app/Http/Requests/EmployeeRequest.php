@@ -43,7 +43,8 @@ class EmployeeRequest extends FormRequest
         return [
             // USER
             'role_id'               => ['required', 'numeric', Rule::in($arrayIdRoles)],
-            'name'                  => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
+            'name'                  => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
+            'phone'                 => ['required', 'numeric' ,'digits:9'],
             'last_name'             => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
             'doc_type'              => ['required', 'string', Rule::in(['dni', 'extranjeria'])],
             'doc_number'            => ['required', 'numeric','unique:users,doc_number',

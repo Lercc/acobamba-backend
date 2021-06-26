@@ -30,6 +30,7 @@ class ProcessorRequest extends FormRequest
             'role_id'               => ['required', 'numeric', Rule::in($arrayIdRoles)],
             'name'                  => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
             'last_name'             => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
+            'phone'                 => ['required', 'numeric' ,'digits:9'],
             'doc_type'              => ['required', 'string', Rule::in(['dni', 'extranjeria'])],
             'doc_number'            => ['required', 'numeric','unique:users,doc_number',
                                         $this->doc_type == 'dni' ? 'digits:8' : ($this->doc_type == 'extranjeria' ? 'digits:11' : new UserDocNumberDocType($this->doc_type))],
