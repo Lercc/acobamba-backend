@@ -11,6 +11,7 @@ class Notification extends Model
 
     protected $fillable = [
         'expedient_id',
+        'user',
         'area',
         'exp_status',
         'status'

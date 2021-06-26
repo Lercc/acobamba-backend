@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Notification;
 
+use App\Models\Expedient;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,8 +15,17 @@ class NotificationController extends Controller
    
     public function index()
     {
-        $notifications = Notification::paginate(15);
-        return new NotificationCollection($notifications);
+        // $notifications = Notification::paginate(15);
+        // return new NotificationCollection($notifications);
+
+//intento nº1
+    //     $notifications = Notification::get('user');
+    //   //  $user_notifications = Expedient::where( 'employee_id' ,$notifications)->get();
+    //     $expedient = Expedient::where( 'employee_id',3)->get();        
+    //     return  $expedient;
+
+//intento nº2 
+
     }
 
   //

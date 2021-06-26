@@ -18,6 +18,7 @@ class DerivationObserver
        if (!\App::runningInConsole()) {
             $notification = new Notification();
             $notification->expedient_id = $derivation->expedient_id;
+            $notification->user = $derivation->expedient->employee_id ? $derivation->expedient->employee_id :  $derivation->expedient->processor_id;
             $notification->area = $derivation->user->employee->office_id ? $derivation->user->employee->office->name :  $derivation->user->employee->suboffice->name;
             $notification->exp_status = 'derivado';
             $notification->status = 'no visto';

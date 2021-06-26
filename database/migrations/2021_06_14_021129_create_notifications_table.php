@@ -16,6 +16,7 @@ class CreateNotificationsTable extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('expedient_id')->unsigned();
+            $table->bigInteger('user')->unsigned();
             $table->string('area','200');
             $table->string('exp_status','9');                     // derivado archivado
             $table->string('status','8');                         // visto     no visto
