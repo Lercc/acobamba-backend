@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use App\Models\Employee;
+use App\Models\Processor;
 
 class LoginController extends Controller
 {
@@ -20,20 +21,20 @@ class LoginController extends Controller
             'password'=>$request->password ])){
 
             $user = $request->user();
-            // $employee = Employee::where('user_id', $user->id)->get();
-            // $employee = $employee[0];
+            $employee = Employee::where('user_id', $user->id)->get();
+            $processor = Processor::where('user_id', $user->id)->get();
 
             return [
                 'message' => 'estas logeado!',
                 'attributes' => [
                     'id'            => $user->id,
                     'role'          => $user->role->name,
-                    // 'employe_id'    => $employee->id,
-                    // 'employe_type'  => $employee->employee_type,
+                    'employee_id'   => sizeof($employee) != 0 ?  $employee[0]->id : null,
+                    'processor_id'  => sizeof($processor) != 0 ?  $processor[0]->id : null,
                     'name'          => $user->name,
                     'last_name'     => $user->last_name,
                     'email'         => $user->email,
-                    'token'         => $user->createtoken($user->role->name)->plainTextToken,
+                    // 'token'         => $user->createtoken($user->role->name)->plainTextToken,
                     // 'tokens'         => $user->tokens
                 ]
             ];
