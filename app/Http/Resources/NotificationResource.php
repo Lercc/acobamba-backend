@@ -20,6 +20,7 @@ class NotificationResource extends JsonResource
                 'area'           => $this->area,
                 'exp_status'     => $this->exp_status,
                 'status'         => $this->status,
+                'created_at'      => $this->created_at->diffForHumans()
             ],
 
             'relationships' => [

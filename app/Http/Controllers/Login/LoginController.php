@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use App\Models\Employee;
 
 class LoginController extends Controller
 {
@@ -19,11 +20,16 @@ class LoginController extends Controller
             'password'=>$request->password ])){
 
             $user = $request->user();
+            // $employee = Employee::where('user_id', $user->id)->get();
+            // $employee = $employee[0];
 
             return [
                 'message' => 'estas logeado!',
                 'attributes' => [
                     'id'            => $user->id,
+                    'role'          => $user->role->name,
+                    // 'employe_id'    => $employee->id,
+                    // 'employe_type'  => $employee->employee_type,
                     'name'          => $user->name,
                     'last_name'     => $user->last_name,
                     'email'         => $user->email,
