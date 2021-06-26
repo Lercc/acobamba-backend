@@ -12,7 +12,7 @@ use App\Http\Controllers\Logout\LogoutController;
 
 use App\Http\Controllers\Office\OfficeController;
 use App\Http\Controllers\Role\RoleUserController;
-// use App\Http\Controllers\User\UserExpedientController;
+
 use App\Http\Controllers\User\UserRoleController;
 use App\Http\Controllers\Employee\EmployeeController;
 
@@ -98,7 +98,7 @@ Route::apiResource('users.roles', UserRoleController::class)->only('index')->mid
 // Route::apiResource('users.expedients', UserExpedientController::class)->only('index');           // OK
 Route::apiResource('users.derivations',UserDerivationController::class)->only('index')->middleware('auth:sanctum');             // OK
 Route::apiResource('users.archivations',UserArchivationController::class)->only('index')->middleware('auth:sanctum'); 
-//Route::apiResource('users.notifications',UserNotificationController::class)->only('index'); 
+Route::apiResource('users.notifications',UserNotificationController::class)->only('index')->middleware('auth:sanctum'); 
 
 /* Office */
 Route::apiResource('offices', OfficeController::class)->middleware('auth:sanctum');                                             // OK
@@ -148,7 +148,8 @@ Route::apiResource('archivations.users', ArchivationUserController::class)->only
 /* Notification */
 Route::apiResource('notifications', NotificationController::class)->middleware('auth:sanctum');                                   // OK
 Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index')->middleware('auth:sanctum');// OK
-//Route::apiResource('notifications.users', NotificationUserController::class)->only('index');// OK
+Route::apiResource('notifications.employees', NotificationEmployeeController::class)->only('index')->middleware('auth:sanctum');// OK
+
 // Nested Resource
 // http://example.com/articles/1/author"
 // Route::resource('articles.author', [ArticlesAuthorController::class])->only('index', 'show')
