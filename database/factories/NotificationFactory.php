@@ -23,6 +23,7 @@ class NotificationFactory extends Factory
     {
         return [
             'expedient_id'       => rand(1,60),
+            'user'               => rand(4,7),
             'area'               => $this->faker->randomElement(['RRHH','Administracion']),
             'exp_status'         => $this->faker->randomElement(['derivado','archivado']),
             'status'             => $this->faker->randomElement(['visto','no visto'])

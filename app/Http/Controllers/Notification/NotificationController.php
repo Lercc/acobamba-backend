@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Notification;
 
+use App\Models\Expedient;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,9 +15,11 @@ class NotificationController extends Controller
    
     public function index()
     {
+  
         $notifications = Notification::paginate(15);
         return new NotificationCollection($notifications);
-    }
+
+     }
 
   //
     public function store(NotificationRequest $request)
