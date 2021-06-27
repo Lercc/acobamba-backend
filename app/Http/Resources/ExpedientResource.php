@@ -39,7 +39,9 @@ class ExpedientResource extends JsonResource
                 'subject'           => $this->subject,
                 'folios'            => $this->folios,
                 'file'              => $this->file,
-                'status'            => $this->status
+                'status'            => $this->status,
+                // 'created_at_default'        => $this->created_at,
+                'createdAt'        => date('m/d/Y H:i:s a', strtotime($this->created_at))
             ],
             'relationships' => [
                 // relacion de dependencia hacia arriba con la tabla user

@@ -23,10 +23,12 @@ class DerivationResource extends JsonResource
                 'expedient_id'   => $this->expedient_id,
                 'expedient_code' => $this->expedient->code, 
                 'user_id'        => $this->user_id,
-                'user_name'      => $this->user->name,
+                'user_name'      => "{$this->user->last_name} {$this->user->name}",
                 'employee_id'    => $this->employee_id,
                 'employee_name'  => $this->employee->user->name,
-                'status'   => $this->status,
+                'employee_area'  => $this->employee->office_id ? $this->employee->office->name : $this->employee->suboffice->name,
+                'status'         => $this->status,
+                'createdAt'        => date('m/d/Y H:i:s a', strtotime($this->created_at))
             ],
 
             'relationships' => [

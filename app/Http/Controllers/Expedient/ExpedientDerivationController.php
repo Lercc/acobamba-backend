@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class ExpedientDerivationController extends Controller
 {
     public function index(Expedient $expedient) {
-        $derivations = Derivation::where('expedient_id', $expedient->id)->paginate(15);
+        $derivations = Derivation::where('expedient_id', $expedient->id)->paginate();
      
         if (sizeof($derivations) != 0) {
             return new DerivationCollection($derivations);

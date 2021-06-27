@@ -23,7 +23,7 @@ class ArchivationFactory extends Factory
     {
         return [
             'expedient_id'   => rand(1,60),
-            'user_id'        => rand(2,4),
+            'user_id'        => rand(5,9),
             'observations'    => $this->faker->text($maxNbChars = 200) ,
             'status'         => 'archivado'
         ];
