@@ -17,7 +17,7 @@ class ProcessorExpedientController extends Controller
         } else {
             return response()->json([
                 'message' => 'El tramitante no tiene expedientes pendientes de revisión'
-            ], 404);
+            ]);
         }
     }
 }
