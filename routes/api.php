@@ -25,11 +25,7 @@ use App\Http\Controllers\User\UserDerivationController;
 use App\Http\Controllers\User\UserArchivationController;
 use App\Http\Controllers\Derivation\DerivationController;
 use App\Http\Controllers\Employee\EmployeeUserController;
-<<<<<<< HEAD
-
-=======
 // use App\Http\Controllers\User\UserNotificationController;
->>>>>>> aa332e6d787e91245251b4af13831b998d17edc4
 use App\Http\Controllers\Office\OfficeSubofficeController;
 use App\Http\Controllers\Archivation\ArchivationController;
 
