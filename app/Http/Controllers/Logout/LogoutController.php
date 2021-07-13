@@ -15,7 +15,7 @@ class LogoutController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Sesión teminada'
+            'message' => 'Sesión terminada'
         ]);
     }
 }
