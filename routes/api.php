@@ -25,7 +25,7 @@ use App\Http\Controllers\User\UserDerivationController;
 use App\Http\Controllers\User\UserArchivationController;
 use App\Http\Controllers\Derivation\DerivationController;
 use App\Http\Controllers\Employee\EmployeeUserController;
-use App\Http\Controllers\User\UserNotificationController;
+
 use App\Http\Controllers\Office\OfficeSubofficeController;
 use App\Http\Controllers\Archivation\ArchivationController;
 
@@ -98,7 +98,7 @@ Route::apiResource('users.roles', UserRoleController::class)->only('index')->mid
 // Route::apiResource('users.expedients', UserExpedientController::class)->only('index');           // OK
 Route::apiResource('users.derivations',UserDerivationController::class)->only('index')->middleware('auth:sanctum');             // OK
 Route::apiResource('users.archivations',UserArchivationController::class)->only('index')->middleware('auth:sanctum'); 
-Route::apiResource('users.notifications',UserNotificationController::class)->only('index')->middleware('auth:sanctum'); 
+
 
 /* Office */
 Route::apiResource('offices', OfficeController::class)->middleware('auth:sanctum');                                             // OK
