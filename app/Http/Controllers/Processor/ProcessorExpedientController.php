@@ -11,7 +11,7 @@ use App\Http\Resources\ExpedientCollection;
 class ProcessorExpedientController extends Controller
 {
     public function index(Processor $processor) {
-        $expedients = Expedient::where('processor_id', $processor->id)->paginate(15);
+        $expedients = Expedient::where('processor_id', $processor->id)->orderBy('id','desc')->paginate(15);
         if (sizeof($expedients) != 0) {
             return new ExpedientCollection($expedients);
         } else {
