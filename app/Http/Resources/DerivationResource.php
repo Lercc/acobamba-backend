@@ -2,19 +2,19 @@
 
 namespace App\Http\Resources;
 
+
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Employee;
 
 class DerivationResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+    
     public function toArray($request)
     {
        // return parent::toArray($request);
+        $employee = Employee::where('user_id', $this->user_id)->get();
+       $employee = $employee[0];
+
         return [
             'type' =>  'Derivation',
             'id'   =>  (string) $this->id,
@@ -24,6 +24,7 @@ class DerivationResource extends JsonResource
                 'expedient_code' => $this->expedient->code, 
                 'user_id'        => $this->user_id,
                 'user_name'      => "{$this->user->last_name} {$this->user->name}",
+                'user_area'      => $employee->office_id ? $employee->office->name : $employee->suboffice->name,
                 'employee_id'    => $this->employee_id,
                 'employee_name'  => $this->employee->user->name,
                 'employee_area'  => $this->employee->office_id ? $this->employee->office->name : $this->employee->suboffice->name,
