@@ -71,7 +71,6 @@ use App\Http\Controllers\Notification\NotificationExpedientController;
 //     return $request->user();
 // });
 
-
 /**
  * Login
  */

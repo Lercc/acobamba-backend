@@ -22,6 +22,7 @@ class DerivationResource extends JsonResource
                 'id'             => $this->id , 
                 'expedient_id'   => $this->expedient_id,
                 'expedient_code' => $this->expedient->code, 
+                'expedient_file' => $this->expedient->file, 
                 'user_id'        => $this->user_id,
                 'user_name'      => "{$this->user->last_name} {$this->user->name}",
                 'user_area'      => $employee->office_id ? $employee->office->name : $employee->suboffice->name,
