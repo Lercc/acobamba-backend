@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Employee;
 
@@ -12,7 +11,7 @@ class DerivationResource extends JsonResource
     public function toArray($request)
     {
        // return parent::toArray($request);
-        $employee = Employee::where('user_id', $this->user_id)->get();
+       $employee = Employee::where('user_id', $this->user_id)->get();
        $employee = $employee[0];
 
         return [
@@ -32,7 +31,6 @@ class DerivationResource extends JsonResource
                 'status'         => $this->status,
                 'createdAt'        => date('m/d/Y H:i:s a', strtotime($this->created_at))
             ],
-
             'relationships' => [
                 'expedient' => [
                     'links' => [
