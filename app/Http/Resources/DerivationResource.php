@@ -12,8 +12,8 @@ class DerivationResource extends JsonResource
     public function toArray($request)
     {
        // return parent::toArray($request);
-        $employee = Employee::where('user_id', $this->user_id)->get();
-       $employee = $employee[0];
+       $employee = Employee::where('user_id', $this->user_id)->get();
+        $employee = $employee[0];
 
         return [
             'type' =>  'Derivation',
