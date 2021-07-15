@@ -116,6 +116,7 @@ Route::apiResource('employees.suboffices', EmployeeSubofficeController::class)->
 Route::apiResource('employees.derivations', EmployeeDerivationController::class)->only('index')->middleware('auth:sanctum');
 Route::apiResource('employees.expedients', EmployeeExpedientController::class)->only('index')->middleware('auth:sanctum');       // NUEVO OK
 
+
 /* Processor */
 Route::apiResource('processors', ProcessorController::class)->middleware('auth:sanctum');                                        // OK
 Route::apiResource('processors.users', ProcessorUserController::class)->only('index')->middleware('auth:sanctum');               // OK
