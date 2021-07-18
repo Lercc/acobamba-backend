@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 use App\Models\Role;
 use App\Models\Office;
 use App\Models\Suboffice;
+use Illuminate\Validation\Rule;
+use App\Rules\UserDocNumberDocType;
+use Illuminate\Foundation\Http\FormRequest;
 
 class EmployeeRequest extends FormRequest
 {
