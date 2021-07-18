@@ -37,6 +37,6 @@ class UserDocNumberDocType implements Rule
      */
     public function message()
     {
-        return 'Ingrese un tipo de documento válido';
+        return 'Ingrese la cantidad de digitos válidos del documento';
     }
 }

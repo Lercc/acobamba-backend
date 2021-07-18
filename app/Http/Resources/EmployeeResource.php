@@ -24,8 +24,8 @@ class EmployeeResource extends JsonResource
             'office_name'           => $this->office_id ? $this->office->name : null,
             'suboffice_id'          => $this->suboffice_id ? $this->suboffice_id : null,
             'suboffice_name'        => $this->suboffice_id ? $this->suboffice->name : null,
-            'office_id_suboffice'   => $this->suboffice_id ? $this->suboffice->office->id : null,
-            'office_name_suboffice' => $this->suboffice_id ? $this->suboffice->office->name : null,
+            'suboffice_office_id'   => $this->suboffice_id ? $this->suboffice->office->id : null,
+            'suboffice_office_name' => $this->suboffice_id ? $this->suboffice->office->name : null,
             'employee_type'         => $this->employee_type,
         ],
         'relationships' => [
