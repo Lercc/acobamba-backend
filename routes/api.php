@@ -72,7 +72,7 @@ use App\Http\Controllers\Notification\NotificationExpedientController;
 // });
 
 /**
- * Login
+ * Login actualizado
  */
 Route::post('login', [ LoginController::class, 'login' ]);
 /* registro del usuario externo */
