@@ -19,6 +19,7 @@ class EmployeeResource extends JsonResource
             'user_name'             => $this->user->name,
             'user_last_name'        => $this->user->last_name,
             'user_email'            => $this->user->email,
+            'user_status'           => $this->user->status,
             'office_id'             => $this->office_id ? $this->office_id : null,
             'office_name'           => $this->office_id ? $this->office->name : null,
             'suboffice_id'          => $this->suboffice_id ? $this->suboffice_id : null,

@@ -39,6 +39,8 @@ class UserController extends Controller
          * name, last_name, email[******]@admin.com, status
          */
         $user->update($request->validated());
+        $user->password = bcrypt($user->password);
+        $user->save();
         return new UserResource($user);
     }
 

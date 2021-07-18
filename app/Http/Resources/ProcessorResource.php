@@ -18,6 +18,7 @@ class ProcessorResource extends JsonResource
                 'user_name'        => $this->user->name,
                 'user_last_name'   => $this->user->last_name,
                 'user_email'       => $this->user->email,
+                'user_status'       => $this->user->status,
             ],
             'relationships' => [
                 'user' => [
