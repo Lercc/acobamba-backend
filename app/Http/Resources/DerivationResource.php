@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Employee;
+use App\Models\Processor;
 
 class DerivationResource extends JsonResource
 {
@@ -12,7 +13,12 @@ class DerivationResource extends JsonResource
     {
        // return parent::toArray($request);
        $employee = Employee::where('user_id', $this->user_id)->get();
-       $employee = $employee[0];
+       $processor = Processor::where('user_id', $this->user_id)->get();
+    //    if (sizeof($employee) != 0) {
+    //        $employee = $employee[0];
+    //    } else {
+    //        $processor = $processor[0];
+    //    }
 
         return [
             'type' =>  'Derivation',
@@ -24,9 +30,10 @@ class DerivationResource extends JsonResource
                 'expedient_file' => $this->expedient->file, 
                 'user_id'        => $this->user_id,
                 'user_name'      => "{$this->user->last_name} {$this->user->name}",
-                'user_area'      => $employee->office_id ? $employee->office->name : $employee->suboffice->name,
+                'user_area'      => sizeof($employee) != 0 ? ($employee[0]->office_id ? $employee[0]->office->name : $employee[0]->suboffice->name) : 'Tramitante externo',
+                // 'user_area'      => $employee->office_id ? $employee->office->name : $employee->suboffice->name,
                 'employee_id'    => $this->employee_id,
-                'employee_name'  => $this->employee->user->name,
+                'employee_name'  =>   "{$this->employee->user->last_name} {$this->employee->user->name}",
                 'employee_area'  => $this->employee->office_id ? $this->employee->office->name : $this->employee->suboffice->name,
                 'status'         => $this->status,
                 'createdAt'        => date('m/d/Y H:i:s a', strtotime($this->created_at))
