@@ -30,6 +30,7 @@ class LoginController extends Controller
                     'id'            => $user->id,
                     'role'          => $user->role->name,
                     'employee_id'   => sizeof($employee) != 0 ?  $employee[0]->id : null,
+                    'employee_type' => sizeof($employee) != 0 ?  $employee[0]->employee_type : null,
                     'processor_id'  => sizeof($processor) != 0 ?  $processor[0]->id : null,
                     'name'          => $user->name,
                     'last_name'     => $user->last_name,
