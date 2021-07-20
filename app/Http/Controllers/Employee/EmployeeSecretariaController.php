@@ -12,7 +12,8 @@ class EmployeeSecretariaController extends Controller
     {
         $secretaria = Employee::select('employees.*')
                                 ->join('offices', 'offices.id', '=', 'employees.office_id')
-                                ->where('employees.office_id', '=', 10)
+                                ->where('employees.office_id', '=', '10')
+                                ->orWhere('employees.office_id', '=', 'Oficina de trámite Documentario')
                                 ->where('employees.employee_type', '=','secretaria')
                                 ->value('id');
                                 // ->get();
