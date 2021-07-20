@@ -33,7 +33,7 @@ class DerivationUpdateRequest extends FormRequest
         
         return [
             'employee_id'  => ['required', 'numeric', Rule::in($arrayEmployee)],
-            'status'       => ['required', 'string', 'max:11', Rule::in(['nuevo'])]
+            'status'       => ['required', 'string', 'max:11', Rule::in(['nuevo','derivado'])]
         ];
     }
 }

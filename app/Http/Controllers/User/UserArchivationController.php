@@ -11,7 +11,7 @@ use App\Http\Resources\ArchivationCollection;
 class UserArchivationController extends Controller
 {
     public function index(User $user) {
-        $archivations = Archivation::where('user_id', $user->id)->paginate(15);
+        $archivations = Archivation::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(15);
         
         if (sizeof($archivations) != 0) {
             return new ArchivationCollection($archivations);

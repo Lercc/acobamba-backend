@@ -29,6 +29,7 @@ use App\Http\Controllers\Employee\EmployeeAllController;
 use App\Http\Controllers\User\UserArchivationController;
 use App\Http\Controllers\Derivation\DerivationController;
 
+use App\Http\Controllers\Employee\EmployeeSecretariaController;
 use App\Http\Controllers\Employee\EmployeeUserController;
 use App\Http\Controllers\Office\OfficeSubofficeController;
 use App\Http\Controllers\Processor\ProcessorAllController;
@@ -119,6 +120,7 @@ Route::apiResource('suboffices', SubofficeController::class)->middleware('auth:s
 Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index')->middleware('auth:sanctum');           // OK
 
 /* Employee */
+Route::get('secreTramDocData', [EmployeeSecretariaController::class, 'getData'])->middleware('auth:sanctum');
 Route::apiResource('employees', EmployeeController::class)->middleware('auth:sanctum');                                          // OK
 Route::apiResource('employees.users', EmployeeUserController::class)->only('index')->middleware('auth:sanctum');                 // OK
 Route::apiResource('employees.offices', EmployeeOfficeController::class)->only('index')->middleware('auth:sanctum');             // OK

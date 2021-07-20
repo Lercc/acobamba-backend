@@ -11,7 +11,7 @@ use App\Http\Resources\DerivationCollection;
 class EmployeeDerivationController extends Controller
 {
     public function index(Employee $employee) {
-        $derivations = Derivation::where('employee_id', $employee->id)->paginate(15);    
+        $derivations = Derivation::where('employee_id', $employee->id)->orderBy('id', 'desc')->paginate(15);    
  
         if (sizeof($derivations) != 0 ) {
           return new DerivationCollection($derivations);
