@@ -19,7 +19,7 @@ class CreateDerivationsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('employee_id')->unsigned();
             $table->string('status','10');                         // nuevo en proceso derivado
-
+            $table->bigInteger('previous_derivation_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

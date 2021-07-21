@@ -12,6 +12,7 @@ class Derivation extends Model
         'expedient_id',
         'user_id',
         'employee_id',
+        'previous_derivation_id',
         'status'
     ];
 

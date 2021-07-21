@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(15);
+        $users = User::where('role_id',1)->paginate(15);
         return new UserCollection($users);
     }
  
@@ -47,5 +47,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function updatePassword( ){
+        
     }
 }

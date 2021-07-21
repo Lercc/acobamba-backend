@@ -17,6 +17,7 @@ class CreateArchivationsTable extends Migration
             $table->id();
             $table->bigInteger('expedient_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('previous_derivation_id')->nullable();
             $table->string('observations','200');
 
             $table->string('status','10');                         // archivado
