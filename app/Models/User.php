@@ -73,8 +73,12 @@ class User extends Authenticatable
     public function derivations(){ 
         return $this->hasMany(Derivation::class);
     }
- 
+
     public function archivations(){ 
         return $this->hasMany(Archivation::class);
+    }
+
+    public function emails(){ 
+        return $this->hasMany(Email::class);
     }
 }

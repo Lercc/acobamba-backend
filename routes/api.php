@@ -165,6 +165,9 @@ Route::apiResource('notifications', NotificationController::class)->middleware('
 Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index')->middleware('auth:sanctum');// OK
 // Route::apiResource('notifications.employees', NotificationEmployeeController::class)->only('index')->middleware('auth:sanctum');// OK
 
+/* Password Recovery */
+
+
 // Nested Resource
 // http://example.com/articles/1/author"
 // Route::resource('articles.author', [ArticlesAuthorController::class])->only('index', 'show')
