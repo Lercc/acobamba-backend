@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(90)->create();
         // Processor::factory(60)->create();
         // Employee::factory(60)->create();
-        Expedient::factory(60)->create();
-        Derivation::factory(30)->create();
-        Archivation::factory(15)->create();
-        Notification::factory(30)->create();
+        // Expedient::factory(60)->create();
+        // Derivation::factory(30)->create();
+        // Archivation::factory(15)->create();
+        // Notification::factory(30)->create();
     }
 }

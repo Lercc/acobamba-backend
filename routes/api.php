@@ -159,6 +159,8 @@ Route::apiResource('archivations.users', ArchivationUserController::class)->only
 
 
 /* Notification */
+Route::get('list/employees/{employee}/notifications', [ NotificationController::class, 'listEmployeeNotifications'])->middleware('auth:sanctum'); // OK
+Route::get('list/processors/{processors}/notifications', [ NotificationController::class, 'listProcessorNotifications'])->middleware('auth:sanctum'); // OK
 Route::apiResource('notifications', NotificationController::class)->middleware('auth:sanctum');                                   // OK
 Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index')->middleware('auth:sanctum');// OK
 // Route::apiResource('notifications.employees', NotificationEmployeeController::class)->only('index')->middleware('auth:sanctum');// OK

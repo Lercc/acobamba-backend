@@ -15,11 +15,27 @@ class NotificationController extends Controller
    
     public function index()
     {
-  
         $notifications = Notification::paginate(15);
         return new NotificationCollection($notifications);
+    }
 
-     }
+    public function listEmployeeNotifications($employee)
+    {
+        $notifications = Notification::where('user', '=', $employee)
+                                        ->where('user_type', '=', 'interno')
+                                        ->orderBy('created_at', 'desc')
+                                        ->paginate(15);
+        return new NotificationCollection($notifications);
+    }
+
+    public function listProcessorNotifications($processors)
+    {
+        $notifications = Notification::where('user', '=', $processors)
+                                        ->where('user_type', '=', 'externo')
+                                        ->orderBy('created_at', 'desc')
+                                        ->paginate(15);
+        return new NotificationCollection($notifications);
+    }
 
   //
     public function store(NotificationRequest $request)

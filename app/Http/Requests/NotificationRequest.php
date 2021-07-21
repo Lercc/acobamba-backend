@@ -24,6 +24,7 @@ class NotificationRequest extends FormRequest
         
         return [       
             'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
+            'user'            => ['required'],
             'area'            => ['required', 'string', 'max:200'],
             'exp_status'      => ['required', 'string', 'max:11', Rule::in(['archivado','derivado'])],
             'status'          => ['required', 'string', 'max:8', Rule::in(['visto', 'no visto'])]

@@ -19,6 +19,7 @@ class ArchivationObserver
             $notification = new Notification();
             $notification->expedient_id = $archivation->expedient_id;
             $notification->user = $archivation->expedient->employee_id ? $archivation->expedient->employee_id :  $archivation->expedient->processor_id;
+            $notification->user_type = $archivation->expedient->employee_id ? 'interno' : 'externo';
             $notification->area = $archivation->user->employee->office_id ? $archivation->user->employee->office->name :  $archivation->user->employee->suboffice->name;
             $notification->exp_status = 'archivado';
             $notification->status = 'no visto';
