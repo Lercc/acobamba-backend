@@ -12,6 +12,7 @@ class Archivation extends Model
         'expedient_id',
         'user_id',
         'observations',
+        'previous_derivation_id', 
         'status'
     ];
 

@@ -24,6 +24,7 @@ class ArchivationResource extends JsonResource
             'user_name'      => "{$this->user->last_name} {$this->user->name}",
             'user_area'      => $employee->office_id ? $employee->office->name : $employee->suboffice->name,
             'observations'   => $this->observations,
+            'previous_derivation_id' => $this->previous_derivation_id , 
             'status'         => $this->status,
             'createdAt'     => date('m/d/Y H:i:s a', strtotime($this->created_at))
         ],

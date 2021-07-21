@@ -44,6 +44,7 @@ class DerivationRequest extends FormRequest
             'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
             'user_id'         => ['required', 'numeric', Rule::in($arrayIdUsers)],
             'employee_id'     => ['required', 'numeric', Rule::in($arrayIdEmployees)],
+            'previous_derivation_id' => ['nullable', 'numeric'], 
             'status'          => ['required', 'string', 'max:11', Rule::in(['nuevo', 'en proceso','derivado'])]
         ];
     }

@@ -37,6 +37,7 @@ class ArchivationRequest extends FormRequest
             'expedient_id'    => ['required', 'numeric', Rule::in($arrayIdExpedients)],
             'user_id'         => ['required', 'numeric', Rule::in($arrayIdUsers)],
             'observations'    => ['required', 'string', 'max:200'],
+            'previous_derivation_id' => ['nullable', 'numeric'], 
             'status'          => ['required', 'string', 'max:11', Rule::in(['archivado'])]
         ];
     }
