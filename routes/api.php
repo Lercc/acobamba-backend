@@ -95,6 +95,7 @@ Route::get('employeesall',[EmployeeAllController::class,'getEmployeeAll'])->midd
 Route::get('officesall',[OfficeAllController::class,'getOfficeAll'])->middleware('auth:sanctum');
 Route::get('subofficesall',[SubofficeAllController::class,'getSubofficeAll'])->middleware('auth:sanctum');
  
+Route::put('updatestatederivation/{derivation}', [ DerivationController::class, 'changeStatusDerivation' ])->middleware('auth:sanctum');
 /**
  *  Roles
  */
