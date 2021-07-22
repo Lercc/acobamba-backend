@@ -44,4 +44,10 @@ class DerivationController extends Controller
     {
         //
     }
+
+    public function changeStatusDerivation(Derivation $derivation){
+        $derivation = Derivation::findOrFail($derivation->id); 
+        $derivation->status = 'en proceso';
+        $derivation->update(); 
+    }
 }
