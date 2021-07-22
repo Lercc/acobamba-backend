@@ -31,9 +31,9 @@ class CreateUsersTable extends Migration
         });
 
         // admin
-        DB::table('users')->insert(array('id'=>'1', 'role_id'=>'1','name'=>'admin', 'last_name'=>'admin', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000001', 'email'=>'admin@admin.com', 'password'=>'password', 'status'=>'activado'));
-        DB::table('users')->insert(array('id'=>'2', 'role_id'=>'1','name'=>'admin2', 'last_name'=>'admin2', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000002', 'email'=>'admin2@admin.com', 'password'=>'password', 'status'=>'desactivado'));
-        DB::table('users')->insert(array('id'=>'3', 'role_id'=>'1','name'=>'admin3', 'last_name'=>'admin3', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000003', 'email'=>'admin3@admin.com', 'password'=>'password', 'status'=>'desactivado'));
+        DB::table('users')->insert(array('id'=>'1', 'role_id'=>'1','name'=>'admin', 'last_name'=>'admin', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000001', 'email'=>'admin@admin.com', 'password'=>'12', 'status'=>'activado'));
+        DB::table('users')->insert(array('id'=>'2', 'role_id'=>'1','name'=>'admin2', 'last_name'=>'admin2', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000002', 'email'=>'admin2@admin.com', 'password'=>'12', 'status'=>'desactivado'));
+        DB::table('users')->insert(array('id'=>'3', 'role_id'=>'1','name'=>'admin3', 'last_name'=>'admin3', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'00000003', 'email'=>'admin3@admin.com', 'password'=>'12', 'status'=>'desactivado'));
         // inte 'phonen => '999999999', o
         DB::table('users')->insert(array('id'=>'4', 'role_id'=>'2','name'=>'Roaldo Martin', 'last_name'=>'Laurente Pucuhuayla', 'phone' => '999999999', 'doc_type'=>'dni', 'doc_number'=>'99999991', 'email'=>'martin@martin.com', 'password'=>'12', 'status'=>'activado'));
         DB::table('users')->insert(array('id'=>'5', 'role_id'=>'2','name'=>'Soraya Guadalupe', 'last_name'=>'Cajacuri León', 'phone' => '999999998', 'doc_type'=>'dni', 'doc_number'=>'99999992', 'email'=>'guadalupe@guadalupe.com', 'password'=>'12', 'status'=>'activado'));
