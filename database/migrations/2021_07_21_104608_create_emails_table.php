@@ -17,7 +17,7 @@ class CreateEmailsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('type');
-            $table->timestamp('expiration_at');
+            $table->bigInteger('expiration_at');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

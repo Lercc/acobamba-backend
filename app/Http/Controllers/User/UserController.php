@@ -10,6 +10,7 @@ use App\Http\Resources\UserResource;
 use App\Http\Resources\UserCollection;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UpdateUserPasswordRequest;
 
 class UserController extends Controller
 {
@@ -49,7 +50,9 @@ class UserController extends Controller
         //
     }
 
-    public function updatePassword( ){
-        
+    public function updateRecoveryPassword(UpdateUserPasswordRequest $request, User $user){
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return response()->json('Contraseña actualizada correctamente!');
     }
 }
