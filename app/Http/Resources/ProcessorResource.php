@@ -21,6 +21,7 @@ class ProcessorResource extends JsonResource
                 'user_doc_type'       => $this->user->doc_type,
                 'user_doc_number'       => $this->user->doc_number,
                 'user_status'       => $this->user->status,
+                'dni_represent'     => $this->dni_represent
             ],
             'relationships' => [
                 'user' => [

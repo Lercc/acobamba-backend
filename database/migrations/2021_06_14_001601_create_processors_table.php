@@ -16,6 +16,7 @@ class CreateProcessorsTable extends Migration
         Schema::create('processors', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->string('dni_represent')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
