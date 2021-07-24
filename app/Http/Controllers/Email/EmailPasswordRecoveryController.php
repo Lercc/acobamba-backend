@@ -31,7 +31,8 @@ class EmailPasswordRecoveryController extends Controller
         $user_id = $user->id;
         $type = 'password recovery';
         // sumar 600 segundos (5 minutos)
-        $expiration_at = ($currentUnixTime + 300) * 1000;
+        // $expiration_at = ($currentUnixTime + 300) * 1000;
+        $expiration_at = $currentUnixTime + 300;
         
         $email = Email::create([
             'user_id'       => $user_id,
