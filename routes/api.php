@@ -107,6 +107,7 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index')->mid
 /**
  *  User
  */
+Route::put('updateCurrentPassword/{user}', [UserController::class, 'updateCurrentPassword'])->middleware('auth:sanctum');
 Route::put('updateRecoveryPassword/{user}', [UserController::class, 'updateRecoveryPassword']);
 Route::apiResource('users', UserController::class)->middleware('auth:sanctum');                                                   // OK
 Route::apiResource('users.roles', UserRoleController::class)->only('index')->middleware('auth:sanctum');                        // OK
