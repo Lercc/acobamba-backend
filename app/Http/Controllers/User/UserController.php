@@ -54,12 +54,12 @@ class UserController extends Controller
     public function updateRecoveryPassword(UpdateUserPasswordRequest $request, User $user){
         $user->password = bcrypt($request->password);
         $user->save();
-        return response()->json('Contraseña actualizada correctamente!');
+        return response()->json('password actualizada correctamente!');
     }
 
     public function updateCurrentPassword(UpdateCurrentPasswordRequest $request, User $user){
         $user->password = bcrypt($request->new_password);
         $user->save();
-        return response()->json('Contraseña actualizada correctamente!');
+        return response()->json('password actualizada correctamente!');
     }
 }
