@@ -62,4 +62,10 @@ class UserController extends Controller
         $user->save();
         return response()->json('password actualizada correctamente!');
     }
+
+    public function updateUserPassword(UpdateUserPasswordRequest $request, User $user){
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return response()->json('password actualizada correctamente!');
+    }
 }
