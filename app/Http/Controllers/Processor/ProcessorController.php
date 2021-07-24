@@ -31,7 +31,11 @@ class ProcessorController extends Controller
             $user->password = bcrypt($user->password);
             $user->save();
 
-            $processor = Processor::create(['user_id' => $user->id]);
+          //  $processor = Processor::create(['user_id' => $user->id]);
+            $processor = new Processor();
+            $processor->user_id = $user->id;           
+            $processor->dni_represent = $request->dni_represent;
+            $processor->save();
 
             DB::commit();
         } catch (Exception $e){

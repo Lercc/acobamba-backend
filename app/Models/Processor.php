@@ -11,6 +11,7 @@ class Processor extends Model
 
     protected $fillable = [
         'user_id',
+        'dni_represent'
     ];
 
     public function user()

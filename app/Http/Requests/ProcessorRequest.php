@@ -31,15 +31,16 @@ class ProcessorRequest extends FormRequest
             'name'                  => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'], 
             'last_name'             => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
             'phone'                 => ['required', 'numeric' ,'digits:9'],
-            'doc_type'              => ['required', 'string', Rule::in(['dni', 'extranjeria'])],
+            'doc_type'              => ['required', 'string', Rule::in(['dni', 'extranjeria','ruc'])],
             'doc_number'            => ['required', 'numeric','unique:users,doc_number',
-                                        $this->doc_type == 'dni' ? 'digits:8' : ($this->doc_type == 'extranjeria' ? 'digits:11' : new UserDocNumberDocType($this->doc_type))],
+                                        $this->doc_type == 'dni' ? 'digits:8' : ($this->doc_type == 'ruc' || $this->doc_type == 'extranjeria' ? 'digits:11' : new UserDocNumberDocType($this->doc_type))],
             'email'                 => ['required', 'string', 'email', 'unique:users,email'],
             'password'              => ['required', 'min:8'], 
             'password_confirmation' => ['required', 'min:8', 'same:password'],
             'status'                => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])],
 
             // EMPLOYEE
+            'dni_represent'         => ['nullable', 'numeric','digits:8'], 
         ];
     }
 }

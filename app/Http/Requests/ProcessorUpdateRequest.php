@@ -40,7 +40,7 @@ class ProcessorUpdateRequest extends FormRequest
             'role_id'    => ['required', 'numeric', Rule::in($arrayRolesExceptAdmin)],
             'name'       => ['required', 'max:80', 'regex:/^[\pL\s\-]+$/u'],
             'last_name'  => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
-            'doc_type'   => ['required', 'string', Rule::in(['dni', 'extranjeria'])],
+            'doc_type'   => ['required', 'string', Rule::in(['dni', 'extranjeria','ruc'])],
             'doc_number' => ['required', 'numeric',
                             $user ? ($this->doc_number != $user->doc_number ? 'unique:users,doc_number' : null) : null,
                             $this->doc_type == 'dni' ? 'digits:8' : ($this->doc_type == 'extranjeria' ? 'digits:11' : new UserDocNumberDocType($this->doc_type))
@@ -52,6 +52,7 @@ class ProcessorUpdateRequest extends FormRequest
 
             // PROCESSOR
             'user_id'           => ['required', 'numeric', new UserMatchProcessor($this->id)],
+            'dni_represent'         => ['nullable', 'numeric','digits:8'], 
         ];
     }
 }

@@ -68,7 +68,7 @@ class EmployeeUpdateRequest extends FormRequest
             'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])],
 
             // EMPLOYEE
-            'user_id'           => ['required', 'numeric', new UserMatchEmployee($this->id)],
+            //'user_id'           => ['required', 'numeric', new UserMatchEmployee($this->user_id)],
             'office_id'         => ['nullable', 'numeric', Rule::in($arrayIdOffices)],
             'suboffice_id'      => ['nullable', 'numeric', Rule::in($arrayIdSuboffices)], 
             'employee_type'     => ['required', 'string', 'max:10', Rule::in(['gerente', 'subgerente', 'trabajador', 'secretaria'])],

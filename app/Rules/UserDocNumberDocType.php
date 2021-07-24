@@ -27,7 +27,7 @@ class UserDocNumberDocType implements Rule
     public function passes($attribute, $value)
     {
         // dd($this->DOC_TYPE);
-        return $this->DOC_TYPE == 'dni' || $this->DOC_TYPE == 'extranjeria';
+        return $this->DOC_TYPE == 'dni' || $this->DOC_TYPE == 'ruc' || $this->DOC_TYPE == 'extranjeria';
     }
 
     /**
