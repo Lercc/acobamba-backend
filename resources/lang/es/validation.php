@@ -172,6 +172,7 @@ return [
         'mobile'                => 'móvil',
         'month'                 => 'mes',
         'name'                  => 'nombre',
+        'new_password'          => 'nueva contraseña',
         'password'              => 'contraseña',
         'password_confirmation' => 'confirmación de la contraseña',
         'phone'                 => 'teléfono',

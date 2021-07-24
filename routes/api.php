@@ -62,6 +62,8 @@ use App\Http\Controllers\Archivation\ArchivationExpedientController;
 use App\Http\Controllers\Derivation\DerivationChangeStateController;
 use App\Http\Controllers\Notification\NotificationExpedientController;
 
+use App\Http\Controllers\Email\EmailPasswordRecoveryController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -105,12 +107,13 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index')->mid
 /**
  *  User
  */
+Route::put('updateCurrentPassword/{user}', [UserController::class, 'updateCurrentPassword'])->middleware('auth:sanctum');
+Route::put('updateRecoveryPassword/{user}', [UserController::class, 'updateRecoveryPassword']);
 Route::apiResource('users', UserController::class)->middleware('auth:sanctum');                                                   // OK
 Route::apiResource('users.roles', UserRoleController::class)->only('index')->middleware('auth:sanctum');                        // OK
 // Route::apiResource('users.expedients', UserExpedientController::class)->only('index');           // OK
 Route::apiResource('users.derivations',UserDerivationController::class)->only('index')->middleware('auth:sanctum');             // OK
 Route::apiResource('users.archivations',UserArchivationController::class)->only('index')->middleware('auth:sanctum'); 
-// Route::apiResource('users.notifications',UserNotificationController::class)->only('index')->middleware('auth:sanctum');
 
 /* Office */
 Route::apiResource('offices', OfficeController::class)->middleware('auth:sanctum');                                             // OK
@@ -165,6 +168,9 @@ Route::get('list/processors/{processors}/notifications', [ NotificationControlle
 Route::apiResource('notifications', NotificationController::class)->middleware('auth:sanctum');                                   // OK
 Route::apiResource('notifications.expedients', NotificationExpedientController::class)->only('index')->middleware('auth:sanctum');// OK
 // Route::apiResource('notifications.employees', NotificationEmployeeController::class)->only('index')->middleware('auth:sanctum');// OK
+
+/* Email Password Recovery */
+Route::apiResource('email-password-recovery', EmailPasswordRecoveryController::class)->only(['store', 'show']);
 
 // Nested Resource
 // http://example.com/articles/1/author"
