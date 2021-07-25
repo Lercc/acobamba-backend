@@ -40,6 +40,6 @@ class ArchivationController extends Controller
 
     public function destroy(Archivation $archivation)
     {
-        //
+        $archivation->delete();
     }
 }

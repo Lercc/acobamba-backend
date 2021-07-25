@@ -25,15 +25,8 @@ class DerivationUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $objectEmployee = Employee::get('id');
-        $arrayEmployee= [];
-        foreach ($objectEmployee as $el) {
-            array_push($arrayEmployee, $el->id);
-        }
-        
         return [
-            'employee_id'  => ['required', 'numeric', Rule::in($arrayEmployee)],
-            'status'       => ['required', 'string', 'max:11', Rule::in(['nuevo','derivado'])]
+            'status'       => ['required', 'string', 'max:11', Rule::in(['nuevo','derivado','en proceso'])]
         ];
     }
 }

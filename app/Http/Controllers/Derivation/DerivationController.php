@@ -42,7 +42,7 @@ class DerivationController extends Controller
 
     public function destroy(Derivation $derivation)
     {
-        //
+        $derivation->delete();  
     }
 
     public function changeStatusDerivation(Derivation $derivation){
