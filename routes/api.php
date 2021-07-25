@@ -171,7 +171,7 @@ Route::apiResource('notifications.expedients', NotificationExpedientController::
 // Route::apiResource('notifications.employees', NotificationEmployeeController::class)->only('index')->middleware('auth:sanctum');// OK
 
 /* Email Password Recovery */
-Route::apiResource('email-password-recovery', EmailPasswordRecoveryController::class)->only(['store', 'show']);
+Route::apiResource('email-password-recovery', EmailPasswordRecoveryController::class)->only(['store', 'show', 'update']);
 
 // Nested Resource
 // http://example.com/articles/1/author"

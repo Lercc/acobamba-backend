@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\PasswordRecoveryRequest;
+use App\Http\Requests\UpdateEmailPasswordRecoveryRequest;
 
 class EmailPasswordRecoveryController extends Controller
 {
@@ -37,6 +38,7 @@ class EmailPasswordRecoveryController extends Controller
         $email = Email::create([
             'user_id'       => $user_id,
             'type'          => $type,
+            'status'        => 'nuevo',
             'expiration_at' => $expiration_at
         ]);
 
@@ -54,10 +56,10 @@ class EmailPasswordRecoveryController extends Controller
         return $email_password_recovery;
     }
 
-    // public function update(Request $request, Email $email)
-    // {
-    //     //
-    // }
+    public function update(UpdateEmailPasswordRecoveryRequest $request, Email $email_password_recovery)
+    {
+        $email_password_recovery->update($request->validated());
+    }
 
     // public function destroy(Email $email)
     // {
