@@ -20,4 +20,19 @@ class ProcessorExpedientController extends Controller
             ]);
         }
     }
+    
+    public function searchExpedient(Request $request){
+
+        $buscar = $request->buscar;
+        $criterio = $request->criterio;
+        if ($buscar==''){
+            $expedients = Expedient::where('processor_id', $request->id)->paginate(15);
+            return new ExpedientCollection($expedients);
+        }
+        else{
+            $expedients = Expedient::where('processor_id', $request->id)->where('expedients.'.$criterio, 'like', '%'. $buscar . '%')
+            ->orderBy('expedients.id', 'desc')->paginate(10);
+            return new ExpedientCollection($expedients);
+        }
+    }
 }

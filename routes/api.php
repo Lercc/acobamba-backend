@@ -135,6 +135,7 @@ Route::apiResource('employees.expedients', EmployeeExpedientController::class)->
 
 
 /* Processor */
+Route::get('search-expedient/processor/',[ProcessorExpedientController::class,'searchExpedient'])->middleware('auth:sanctum');
 Route::apiResource('processors', ProcessorController::class)->middleware('auth:sanctum');                                        // OK
 Route::apiResource('processors.users', ProcessorUserController::class)->only('index')->middleware('auth:sanctum');               // OK
 Route::apiResource('processors.expedients', ProcessorExpedientController::class)->only('index')->middleware('auth:sanctum');     // NUEVO OK
@@ -172,6 +173,10 @@ Route::apiResource('notifications.expedients', NotificationExpedientController::
 
 /* Email Password Recovery */
 Route::apiResource('email-password-recovery', EmailPasswordRecoveryController::class)->only(['store', 'show', 'update']);
+
+
+/* Busqueda de Expedient */
+
 
 // Nested Resource
 // http://example.com/articles/1/author"
