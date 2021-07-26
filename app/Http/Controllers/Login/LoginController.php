@@ -35,6 +35,7 @@ class LoginController extends Controller
                     'name'          => $user->name,
                     'last_name'     => $user->last_name,
                     'email'         => $user->email,
+                    'status'        => $user->status,
                     'token'         => $user->createtoken($user->role->name)->plainTextToken,
                     // 'tokens'         => $user->tokens
                 ]
