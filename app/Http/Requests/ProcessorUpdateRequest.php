@@ -51,7 +51,7 @@ class ProcessorUpdateRequest extends FormRequest
             'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])],
 
             // PROCESSOR
-            'user_id'           => ['required', 'numeric', new UserMatchProcessor($this->id)],
+            //'user_id'           => ['required', 'numeric', new UserMatchProcessor($this->id)],
             'dni_represent'         => ['nullable', 'numeric','digits:8'], 
         ];
     }
