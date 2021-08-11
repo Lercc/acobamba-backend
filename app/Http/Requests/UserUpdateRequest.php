@@ -31,8 +31,8 @@ class UserUpdateRequest extends FormRequest
             'last_name'  => ['required', 'max:120', 'regex:/^[\pL\s\-]+$/u'],
             'phone'      => ['required', 'numeric' ,'digits:9'],
             'email'      => ['required', 'string', 'email', $user ?  ($this->email != $user->email ? 'unique:users,email' : null) : null],
-            'password'              => ['required', 'min:8'], 
-            'password_confirmation' => ['required', 'min:8', 'same:password'],
+            // 'password'              => ['required', 'min:8'], 
+            // 'password_confirmation' => ['required', 'min:8', 'same:password'],
             'status'     => ['required', 'string', 'max:11', Rule::in(['activado', 'desactivado'])]
         ];
     }

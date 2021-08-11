@@ -52,7 +52,9 @@ class ProcessorUpdateRequest extends FormRequest
 
             // PROCESSOR
             //'user_id'           => ['required', 'numeric', new UserMatchProcessor($this->id)],
-            'dni_represent'         => ['nullable', 'numeric','digits:8'], 
+          //  'dni_represent'         => ['nullable', 'numeric'], 
+            //'dni_represent'         => ['nullable', 'numeric','digits:8'], 
+
         ];
     }
 }

@@ -13,4 +13,15 @@ class DerivationExpedientController extends Controller
         $expedient = $derivation->expedient;
         return new ExpedientResource($expedient);
     }
+    
+    public function indexState(Derivation $derivation) {
+        $expedients = Derivation::select('')->where('employee_id', $employee->id)->orderBy('id','desc')->paginate(15);
+        if(count($expedients) != 0) {
+            return new ExpedientCollection($expedients);
+        } else {
+            return response()->json([
+                'message' => 'El empleado no tiene expedientes presentados'
+            ], 404);
+        }
+    }
 }
