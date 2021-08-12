@@ -20,4 +20,19 @@ class EmployeeExpedientController extends Controller
             ], 404);
         }
     }
+
+    public function searchExpedientEmployee(Request $request){
+
+        $buscar = $request->buscar;
+        $criterio = $request->criterio;
+        if ($buscar==''){
+            $expedients = Expedient::where('employee_id', $request->id)->paginate(15);
+            return new ExpedientCollection($expedients);
+        }
+        else{
+            $expedients = Expedient::where('employee_id', $request->id)->where('expedients.'.$criterio, 'like', '%'. $buscar . '%')
+            ->orderBy('expedients.id', 'desc')->paginate(10);
+            return new ExpedientCollection($expedients);
+        }
+    }
 }
