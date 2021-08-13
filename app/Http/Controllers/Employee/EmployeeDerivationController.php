@@ -47,7 +47,7 @@ class EmployeeDerivationController extends Controller
        
         $expedients = Derivation::where('employee_id', $request->id)
             ->where('created_at', '>=', $from)
-            ->where('created_at', '<', $until)
+            ->where('created_at', '<', $until ) 
             ->orderBy('derivations.id', 'desc')->get();
             // return $from;
             return new DerivationCollection($expedients);
