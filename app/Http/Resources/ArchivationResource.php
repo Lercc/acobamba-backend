@@ -26,7 +26,7 @@ class ArchivationResource extends JsonResource
             'observations'   => $this->observations,
             'previous_derivation_id' => $this->previous_derivation_id , 
             'status'         => $this->status,
-            'createdAt'     => date('m/d/Y H:i:s a', strtotime($this->created_at))
+            'createdAt'     => date('d/m/Y H:i:s a', strtotime($this->created_at))
         ],
 
         'relationships' => [

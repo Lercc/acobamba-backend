@@ -125,7 +125,7 @@ Route::apiResource('suboffices', SubofficeController::class)->middleware('auth:s
 Route::apiResource('suboffices.offices', SubofficeOfficeController::class)->only('index')->middleware('auth:sanctum');           // OK
 
 /* Employee */
-Route::get('search-expedient-date/employee',[EmployeeExpedientController::class,'searchExpedientEmployeeDate'])->middleware('auth:sanctum');
+Route::get('search-derivation-date/employee',[EmployeeDerivationController::class,'searchDerivationEmployeeDate'])->middleware('auth:sanctum');
 Route::get('search-expedient/employee/',[EmployeeExpedientController::class,'searchExpedientEmployee'])->middleware('auth:sanctum');
 Route::get('secreTramDocData', [EmployeeSecretariaController::class, 'getData'])->middleware('auth:sanctum');
 Route::apiResource('employees', EmployeeController::class)->middleware('auth:sanctum');                                          // OK

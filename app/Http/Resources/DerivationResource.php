@@ -37,7 +37,7 @@ class DerivationResource extends JsonResource
                 'employee_area'  => $this->employee->office_id ? $this->employee->office->name : $this->employee->suboffice->name,
                 'previous_derivation_id' => $this->previous_derivation_id , 
                 'status'         => $this->status,
-                'createdAt'        => date('m/d/Y H:i:s a', strtotime($this->created_at))
+                'createdAt'        => date('d/m/Y H:i:s a', strtotime($this->created_at))
             ],
             'relationships' => [
                 'expedient' => [

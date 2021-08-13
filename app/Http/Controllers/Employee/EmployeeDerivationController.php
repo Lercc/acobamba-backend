@@ -21,7 +21,35 @@ class EmployeeDerivationController extends Controller
                 'message' => 'El encargado no tiene derivaciones realizadas'
             ], 200);
         }
-    
     }
-    
+
+    public function searchDerivationEmployeeDate(Request $request){
+        // $buscar = $request->buscar;
+        $from = $request->start;
+        $until = $request->end ; 
+
+        // if ($buscar==''){
+        //     $expedients = Derivation::where('employee_id', $request->id)->get();
+        //     return new DerivationCollection($expedients);
+        // }
+        // else{
+        //     $expedients = Derivation::where('employee_id', $request->id)->whereBetween('created_at', array($from,$until))
+        //     ->orderBy('derivations.id', 'desc')->get();
+        //     return new DerivationCollection($expedients);
+        // }
+
+        // return $from;
+
+        // $expedients = Derivation::where('employee_id', $request->id)->whereBetween('created_at', [$from,$until])
+        //     ->orderBy('derivations.id', 'desc')->get();
+        //     return $expedients;
+        //     return new DerivationCollection($expedients);
+       
+        $expedients = Derivation::where('employee_id', $request->id)
+            ->where('created_at', '>=', $from)
+            ->where('created_at', '<', $until)
+            ->orderBy('derivations.id', 'desc')->get();
+            // return $from;
+            return new DerivationCollection($expedients);
+    }
 }

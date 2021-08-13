@@ -36,22 +36,5 @@ class EmployeeExpedientController extends Controller
             return new ExpedientCollection($expedients);
         }
     }
-    public function searchExpedientEmployeeDate(Request $request){
-
-        $buscar = $request->buscar;
-        $from = $request->from;
-   //     $until = Carbon::now('America/Lima');
-        $until = $request->until ; 
-
-        if ($buscar==''){
-            $expedients = Expedient::where('employee_id', $request->id)->get();
-            return new ExpedientCollection($expedients);
-        }
-        else{
-            $expedients = Expedient::where('employee_id', $request->id)->whereBetween('created_at', [$from, $until])  
-            ->orderBy('expedients.id', 'desc')->get();
-            return new ExpedientCollection($expedients);
-        }
-    }
 }
 
