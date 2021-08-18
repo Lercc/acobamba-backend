@@ -15,7 +15,7 @@ class DerivationController extends Controller
 
     public function index()
     {
-        $derivations = Derivation::paginate(15);
+        $derivations = Derivation::orderBy('derivations.id', 'desc')->paginate(15);
         return new DerivationCollection($derivations);
     }
 

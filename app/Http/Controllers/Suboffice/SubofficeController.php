@@ -17,7 +17,7 @@ class SubofficeController extends Controller
 
     public function index()
     {
-        $suboffices =  Suboffice::paginate(4);
+        $suboffices =  Suboffice::orderBy('id','desc')->paginate(8);
         return new SubofficeCollection($suboffices);
     }
 

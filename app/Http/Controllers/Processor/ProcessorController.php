@@ -17,7 +17,7 @@ class ProcessorController extends Controller
     
     public function index()
     {
-        $processors = Processor::paginate(6);
+        $processors = Processor::orderBy('id','desc')->paginate(8);
         return new ProcessorCollection($processors);
     }
 

@@ -15,7 +15,7 @@ class OfficeController extends Controller
    
     public function index()
     {
-     $offices = Office::paginate(10);
+     $offices = Office::orderBy('id','desc')->paginate(8);
      return new OfficeCollection($offices);
     }
 

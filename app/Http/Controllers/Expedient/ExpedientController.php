@@ -15,7 +15,7 @@ class ExpedientController extends Controller
 {
     public function index()
     {
-        $expedients = Expedient::paginate(15);
+        $expedients = Expedient::orderBy('id','desc')->paginate(15);
         return new ExpedientCollection($expedients);
   
     }

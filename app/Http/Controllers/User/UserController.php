@@ -17,7 +17,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('role_id',1)->paginate(15);
+        $users = User::where('role_id',1)->orderBy('id','desc')->paginate(8);
         return new UserCollection($users);
     }
  
