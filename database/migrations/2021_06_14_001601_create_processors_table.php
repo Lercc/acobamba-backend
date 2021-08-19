@@ -22,8 +22,9 @@ class CreateProcessorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
         });
         
-        DB::table('processors')->insert(array('id'=>'1', 'user_id'=>'8'));
-        DB::table('processors')->insert(array('id'=>'2', 'user_id'=>'9'));
+        DB::table('processors')->insert(array('id'=>'1', 'user_id'=>'49'));
+        DB::table('processors')->insert(array('id'=>'2', 'user_id'=>'50'));
+        DB::table('processors')->insert(array('id'=>'2', 'user_id'=>'51'));
     }
 
     /**
