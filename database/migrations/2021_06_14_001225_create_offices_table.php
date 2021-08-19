@@ -35,7 +35,7 @@ class CreateOfficesTable extends Migration
         DB::table('offices')->insert(array('id'=>'17', 'name'=>'Comité de Administración Programa Vaso de Leche', 'status'=>'activado'));
         DB::table('offices')->insert(array('id'=>'18', 'name'=>'EMSAP', 'status'=>'activado'));
         DB::table('offices')->insert(array('id'=>'19', 'name'=>'Cajera-Coordinadora OMAPED', 'status'=>'activado'));
-        DB::table('offices')->insert(array('id'=>'20', 'name'=>'Personal de la Unidad Local de Empadronamiento', 'status'=>'activado'));
+        DB::table('offices')->insert(array('id'=>'20', 'name'=>'Unidad Local de Empadronamiento', 'status'=>'activado'));
         DB::table('offices')->insert(array('id'=>'21', 'name'=>'Jefe de Almacén, Patrimonio e Informática', 'status'=>'activado'));
         DB::table('offices')->insert(array('id'=>'22', 'name'=>'Conserje Local Municipal', 'status'=>'activado'));
         DB::table('offices')->insert(array('id'=>'23', 'name'=>'Liquidaciones', 'status'=>'activado'));

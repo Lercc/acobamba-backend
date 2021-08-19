@@ -48,7 +48,7 @@ class CreateEmployeesTable extends Migration
         DB::table('employees')->insert(array('id'=>'16', 'user_id'=>'19','office_id'=>'11', 'employee_type'=>'trabajador'));
         DB::table('employees')->insert(array('id'=>'17', 'user_id'=>'20','suboffice_id'=>'3', 'employee_type'=>'trabajador'));
 
-        DB::table('employees')->insert(array('id'=>'18', 'user_id'=>'21','office_id'=>'22', 'employee_type'=>'trabajador'));
+        DB::table('employees')->insert(array('id'=>'18', 'user_id'=>'21','office_id'=>'23', 'employee_type'=>'trabajador'));
         DB::table('employees')->insert(array('id'=>'20', 'user_id'=>'22','suboffice_id'=>'6', 'employee_type'=>'subgerente'));
         DB::table('employees')->insert(array('id'=>'21', 'user_id'=>'23','suboffice_id'=>'6', 'employee_type'=>'trabajador'));
         DB::table('employees')->insert(array('id'=>'22', 'user_id'=>'24','office_id'=>'24', 'employee_type'=>'trabajador'));
