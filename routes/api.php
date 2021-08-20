@@ -107,12 +107,12 @@ Route::apiResource('roles.users', RoleUserController::class)->only('index')->mid
 /**
  *  User
  */
+Route::get('userAmountArchivations/{user}', [UserController::class, 'userAmountArchivations'])->middleware('auth:sanctum');
 Route::put('updateUserPassword/{user}', [UserController::class, 'updateUserPassword'])->middleware('auth:sanctum');
 Route::put('updateCurrentPassword/{user}', [UserController::class, 'updateCurrentPassword'])->middleware('auth:sanctum');
 Route::put('updateRecoveryPassword/{user}', [UserController::class, 'updateRecoveryPassword']);
 Route::apiResource('users', UserController::class)->middleware('auth:sanctum');                                                   // OK
 Route::apiResource('users.roles', UserRoleController::class)->only('index')->middleware('auth:sanctum');                        // OK
-// Route::apiResource('users.expedients', UserExpedientController::class)->only('index');           // OK
 Route::apiResource('users.derivations',UserDerivationController::class)->only('index')->middleware('auth:sanctum');             // OK
 Route::apiResource('users.archivations',UserArchivationController::class)->only('index')->middleware('auth:sanctum'); 
 

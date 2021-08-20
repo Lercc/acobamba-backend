@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\User;
+use App\Models\Archivation;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,7 +21,7 @@ class UserController extends Controller
         $users = User::where('role_id',1)->orderBy('id','desc')->paginate(8);
         return new UserCollection($users);
     }
- 
+
     public function store(UserRequest $request)
     {
         $user = User::create($request->validated());
@@ -68,4 +69,12 @@ class UserController extends Controller
         $user->save();
         return response()->json('password actualizada correctamente!');
     }
+
+    // cantidad de archivaciones realizadas
+    public function userAmountArchivations(User $user)
+    {
+        $archivations = Archivation::where('user_id', '=', $user->id)->get();
+        return $archivations;
+    }
+
 }
